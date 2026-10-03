@@ -1,11 +1,11 @@
 <?php
 /**
- * Uninstall Al Bot — Agency Plugin.
+ * Uninstall Orate — Agency Plugin.
  *
  * Runs when the plugin is deleted (not just deactivated) from the Plugins screen.
  * Removes all wp_options entries, drops custom DB tables, and deletes uploaded files.
  *
- * @package Al_Bot_Agency
+ * @package Orate_Agency
  */
 
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {

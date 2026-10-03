@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Al Bot — Agency Plugin
+ * Plugin Name:       Orate — Agency Plugin
  * Plugin URI:
  * Description:       Full-featured AI chat plugin for agencies — unlimited WordPress sites, all 6 AI model integrations, auto-training, smart lead capture, knowledge base uploads, analytics, and white-label bot branding.
  * Version:           1.1.0
@@ -10,7 +10,7 @@
  * Author URI:
  * License:           GPL v2
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       al-bot-agency
+ * Text Domain:       orate-agency
  * Domain Path:       /languages
  *
  * == Changelog ==
@@ -164,11 +164,11 @@ function aichat_activate() {
  */
 function aichat_proactive_trigger_types() {
 	return array(
-		'exit_intent'  => __( 'Exit Intent', 'al-bot-agency' ),
-		'idle_on_page' => __( 'Idle On Page', 'al-bot-agency' ),
-		'scroll_depth' => __( 'Scroll Depth', 'al-bot-agency' ),
-		'url_contains' => __( 'URL Contains', 'al-bot-agency' ),
-		'time_on_site' => __( 'Time On Site', 'al-bot-agency' ),
+		'exit_intent'  => __( 'Exit Intent', 'orate-agency' ),
+		'idle_on_page' => __( 'Idle On Page', 'orate-agency' ),
+		'scroll_depth' => __( 'Scroll Depth', 'orate-agency' ),
+		'url_contains' => __( 'URL Contains', 'orate-agency' ),
+		'time_on_site' => __( 'Time On Site', 'orate-agency' ),
 	);
 }
 
@@ -361,8 +361,8 @@ add_action( 'admin_menu', 'aichat_admin_menu' );
 function aichat_admin_menu() {
 	// Top-level menu.
 	add_menu_page(
-		__( 'Al Bot Agency', 'al-bot-agency' ),
-		__( 'Al Bot Agency', 'al-bot-agency' ),
+		__( 'Orate Agency', 'orate-agency' ),
+		__( 'Orate Agency', 'orate-agency' ),
 		'manage_options',
 		'ai-site-chat-panel',
 		'aichat_settings_page',
@@ -373,8 +373,8 @@ function aichat_admin_menu() {
 	// Settings (replaces auto-generated duplicate).
 	add_submenu_page(
 		'ai-site-chat-panel',
-		__( 'Settings', 'al-bot-agency' ),
-		__( 'Settings', 'al-bot-agency' ),
+		__( 'Settings', 'orate-agency' ),
+		__( 'Settings', 'orate-agency' ),
 		'manage_options',
 		'ai-site-chat-panel',
 		'aichat_settings_page'
@@ -383,8 +383,8 @@ function aichat_admin_menu() {
 	// Knowledge Base.
 	add_submenu_page(
 		'ai-site-chat-panel',
-		__( 'Knowledge Base', 'al-bot-agency' ),
-		__( 'Knowledge Base', 'al-bot-agency' ),
+		__( 'Knowledge Base', 'orate-agency' ),
+		__( 'Knowledge Base', 'orate-agency' ),
 		'manage_options',
 		'ai-site-chat-kb',
 		'aichat_knowledge_page'
@@ -393,8 +393,8 @@ function aichat_admin_menu() {
 	// Analytics.
 	add_submenu_page(
 		'ai-site-chat-panel',
-		__( 'Analytics', 'al-bot-agency' ),
-		__( 'Analytics', 'al-bot-agency' ),
+		__( 'Analytics', 'orate-agency' ),
+		__( 'Analytics', 'orate-agency' ),
 		'manage_options',
 		'ai-site-chat-analytics',
 		'aichat_analytics_page'
@@ -403,8 +403,8 @@ function aichat_admin_menu() {
 	// Leads.
 	add_submenu_page(
 		'ai-site-chat-panel',
-		__( 'Leads', 'al-bot-agency' ),
-		__( 'Leads', 'al-bot-agency' ),
+		__( 'Leads', 'orate-agency' ),
+		__( 'Leads', 'orate-agency' ),
 		'manage_options',
 		'ai-site-chat-leads',
 		'aichat_leads_page'
@@ -412,10 +412,10 @@ function aichat_admin_menu() {
 
 	// Keep Settings > AI Site Chat working.
 	add_options_page(
-		__( 'AI Site Chat Settings', 'al-bot-agency' ),
-		__( 'Al Bot Agency', 'al-bot-agency' ),
+		__( 'AI Site Chat Settings', 'orate-agency' ),
+		__( 'Orate Agency', 'orate-agency' ),
 		'manage_options',
-		'al-bot-agency',
+		'orate-agency',
 		'aichat_settings_page'
 	);
 }
@@ -582,7 +582,7 @@ function aichat_admin_notice_missing_key() {
 		<span style="font-size: 28px; line-height: 1;">🚨</span>
 		<div>
 			<strong style="color: #dc2626; font-size: 15px;">
-				Al Bot — API Key Missing!
+				Orate — API Key Missing!
 			</strong>
 			<p style="margin: 4px 0 0; color: #7f1d1d;">
 				The chat widget is <strong>not working</strong> because no API key is set for the active provider
@@ -630,7 +630,7 @@ function aichat_admin_notice_mail_failure() {
 		<span style="font-size: 28px; line-height: 1;">✉️</span>
 		<div>
 			<strong style="color: #dc2626; font-size: 15px;">
-				Al Bot — Handoff Email Failed to Send
+				Orate — Handoff Email Failed to Send
 			</strong>
 			<p style="margin: 4px 0 0; color: #7f1d1d;">
 				The last "talk to a human" notification email could not be delivered
@@ -779,8 +779,8 @@ function aichat_enqueue_admin_assets( $hook ) {
 		'deleteNonce'   => wp_create_nonce( 'aichat_delete_file_nonce' ),
 		'urlNonce'      => wp_create_nonce( 'aichat_kb_url_nonce' ),
 		'trainNonce'    => wp_create_nonce( 'aichat_train_nonce' ),
-		'confirmDelete' => __( 'Delete this file from the knowledge base?', 'al-bot-agency' ),
-		'confirmUrl'    => __( 'Remove this URL from the knowledge base?', 'al-bot-agency' ),
+		'confirmDelete' => __( 'Delete this file from the knowledge base?', 'orate-agency' ),
+		'confirmUrl'    => __( 'Remove this URL from the knowledge base?', 'orate-agency' ),
 	) );
 }
 
@@ -1645,14 +1645,14 @@ function aichat_humanize_gap( $seconds ) {
 	}
 	if ( $seconds < 3600 ) {
 		/* translators: %d: number of minutes between two messages. */
-		return sprintf( _n( '%d min apart', '%d min apart', (int) round( $seconds / 60 ), 'al-bot-agency' ), (int) round( $seconds / 60 ) );
+		return sprintf( _n( '%d min apart', '%d min apart', (int) round( $seconds / 60 ), 'orate-agency' ), (int) round( $seconds / 60 ) );
 	}
 	if ( $seconds < 86400 ) {
 		/* translators: %d: number of hours between two messages. */
-		return sprintf( _n( '%d hr apart', '%d hrs apart', (int) round( $seconds / 3600 ), 'al-bot-agency' ), (int) round( $seconds / 3600 ) );
+		return sprintf( _n( '%d hr apart', '%d hrs apart', (int) round( $seconds / 3600 ), 'orate-agency' ), (int) round( $seconds / 3600 ) );
 	}
 	/* translators: %d: number of days between two messages. */
-	return sprintf( _n( '%d day apart', '%d days apart', (int) round( $seconds / 86400 ), 'al-bot-agency' ), (int) round( $seconds / 86400 ) );
+	return sprintf( _n( '%d day apart', '%d days apart', (int) round( $seconds / 86400 ), 'orate-agency' ), (int) round( $seconds / 86400 ) );
 }
 
 // ─── Export: Single Session Transcript CSV ───────────────────────────────────
@@ -1746,8 +1746,8 @@ function aichat_ajax_send_test_email() {
 	}
 
 	$site_name = get_bloginfo( 'name' );
-	$subject   = '[' . $site_name . '] Al Bot — Test Email';
-	$body      = "This is a test email from the Al Bot Agency plugin on {$site_name}.\n\n" .
+	$subject   = '[' . $site_name . '] Orate — Test Email';
+	$body      = "This is a test email from the Orate Agency plugin on {$site_name}.\n\n" .
 		"If you're reading this, handoff notification emails are working correctly — " .
 		"real ones will include the visitor's name, phone, email, and full chat transcript.\n\n" .
 		'Sent: ' . current_time( 'mysql' );
@@ -2323,7 +2323,7 @@ function aichat_send_notification_email( $to, $subject, $body, $is_html = false 
 	if ( ! $sent || $mail_error ) {
 		update_option( 'aichat_last_mail_error', array(
 			'time'    => current_time( 'mysql' ),
-			'message' => $mail_error ? $mail_error->get_error_message() : __( 'wp_mail() reported failure with no further detail — check your SMTP/mail configuration.', 'al-bot-agency' ),
+			'message' => $mail_error ? $mail_error->get_error_message() : __( 'wp_mail() reported failure with no further detail — check your SMTP/mail configuration.', 'orate-agency' ),
 		), false );
 		return false;
 	}

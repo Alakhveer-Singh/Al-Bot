@@ -373,10 +373,10 @@
 
   /* "White-Label Branding" setting (aichat_hide_branding) \u2014 omit the footer
      entirely when hidden, rather than just hiding it with CSS, so agencies
-     running white-label never ship an "Al Bot" mention to their clients. */
+     running white-label never ship an "Orate" mention to their clients. */
   function brandingHTML() {
     if (cfg.hideBranding) return '';
-    return '<div class="aichat-branding">Powered by <strong>Al Bot</strong></div>';
+    return '<div class="aichat-branding">Powered by <strong>Orate</strong></div>';
   }
 
   /* Show chat panel, hide gate panel — no innerHTML replacement needed */
@@ -1681,7 +1681,7 @@
 
      The system prompt (trained knowledge base + personality + lead-capture
      rules) is built entirely server-side in aichat_ajax_proxy_llm() —
-     see al-bot-agency-plugin.php. The client only sends the conversation
+     see orate-agency-plugin.php. The client only sends the conversation
      messages plus a few lead-context flags; it never sees or supplies the
      prompt text itself. This keeps the knowledge base out of page source
      and keeps the proxy from being scriptable as a general-purpose chatbot

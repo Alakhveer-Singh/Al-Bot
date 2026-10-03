@@ -1,7 +1,7 @@
 <?php
 /**
  * Chat Widget — outputs the widget mount point in wp_footer.
- * The shortcode [ai_site_chat] is registered in al-bot-agency-plugin.php.
+ * The shortcode [ai_site_chat] is registered in orate-agency-plugin.php.
  * All rendering is handled by assets/js/chat-widget.js.
  *
  * @package AI_Site_Chat
@@ -53,7 +53,7 @@ function aichat_output_inline_config() {
 		'streamingEnabled' => get_option( 'aichat_streaming_enabled', '' ) === '1',
 		// No system prompt / knowledge base content here — the server builds
 		// the prompt itself in aichat_ajax_proxy_llm() so it's never exposed
-		// in page source (see al-bot-agency-plugin.php).
+		// in page source (see orate-agency-plugin.php).
 		'siteName'        => get_bloginfo( 'name' ),
 		'pageUrl'         => esc_url_raw( home_url( isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( $_SERVER['REQUEST_URI'] ) : '/' ) ),
 	);

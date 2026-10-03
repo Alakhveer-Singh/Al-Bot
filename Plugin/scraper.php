@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /**
  * Grammatically correct possessive form of a name — "Coders'" not "Coders's"
- * for names already ending in s, "Al Bot's" otherwise.
+ * for names already ending in s, "Orate's" otherwise.
  *
  * @param  string $name
  * @return string

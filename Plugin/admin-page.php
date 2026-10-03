@@ -280,13 +280,13 @@ function aichat_admin_styles() {
  */
 function aichat_admin_page_nav( $current ) {
 	$tabs = array(
-		'settings'  => array( 'label' => __( 'Settings', 'al-bot-agency' ),        'icon' => 'dashicons-admin-generic', 'page' => 'ai-site-chat-panel' ),
-		'kb'        => array( 'label' => __( 'Knowledge Base', 'al-bot-agency' ),  'icon' => 'dashicons-database',      'page' => 'ai-site-chat-kb' ),
-		'analytics' => array( 'label' => __( 'Analytics', 'al-bot-agency' ),       'icon' => 'dashicons-chart-bar',     'page' => 'ai-site-chat-analytics' ),
-		'leads'     => array( 'label' => __( 'Leads', 'al-bot-agency' ),           'icon' => 'dashicons-groups',        'page' => 'ai-site-chat-leads' ),
+		'settings'  => array( 'label' => __( 'Settings', 'orate-agency' ),        'icon' => 'dashicons-admin-generic', 'page' => 'ai-site-chat-panel' ),
+		'kb'        => array( 'label' => __( 'Knowledge Base', 'orate-agency' ),  'icon' => 'dashicons-database',      'page' => 'ai-site-chat-kb' ),
+		'analytics' => array( 'label' => __( 'Analytics', 'orate-agency' ),       'icon' => 'dashicons-chart-bar',     'page' => 'ai-site-chat-analytics' ),
+		'leads'     => array( 'label' => __( 'Leads', 'orate-agency' ),           'icon' => 'dashicons-groups',        'page' => 'ai-site-chat-leads' ),
 	);
 	?>
-	<nav class="aichat-tabs" aria-label="<?php esc_attr_e( 'Al Bot Agency sections', 'al-bot-agency' ); ?>">
+	<nav class="aichat-tabs" aria-label="<?php esc_attr_e( 'Orate Agency sections', 'orate-agency' ); ?>">
 		<?php foreach ( $tabs as $key => $tab ) : ?>
 			<a href="<?php echo esc_url( admin_url( 'admin.php?page=' . $tab['page'] ) ); ?>"
 				class="aichat-tab <?php echo ( $key === $current ) ? 'is-active' : ''; ?>"
@@ -334,16 +334,16 @@ function aichat_render_proactive_rule_row( $index, $rule, $types, $hints ) {
 		<div class="aichat-rule-head">
 			<label class="aichat-rule-enable">
 				<input type="checkbox" name="<?php echo esc_attr( $name ); ?>[enabled]" value="1" <?php checked( $enabled ); ?> />
-				<span><?php esc_html_e( 'Enabled', 'al-bot-agency' ); ?></span>
+				<span><?php esc_html_e( 'Enabled', 'orate-agency' ); ?></span>
 			</label>
-			<button type="button" class="button-link aichat-rule-remove" aria-label="<?php esc_attr_e( 'Remove this rule', 'al-bot-agency' ); ?>">
+			<button type="button" class="button-link aichat-rule-remove" aria-label="<?php esc_attr_e( 'Remove this rule', 'orate-agency' ); ?>">
 				<span class="dashicons dashicons-trash"></span>
 			</button>
 		</div>
 
 		<div class="aichat-rule-grid">
 			<div>
-				<label for="<?php echo esc_attr( $uid ); ?>-type"><?php esc_html_e( 'When', 'al-bot-agency' ); ?></label>
+				<label for="<?php echo esc_attr( $uid ); ?>-type"><?php esc_html_e( 'When', 'orate-agency' ); ?></label>
 				<select id="<?php echo esc_attr( $uid ); ?>-type" name="<?php echo esc_attr( $name ); ?>[trigger_type]" class="aichat-rule-type">
 					<?php foreach ( $types as $key => $label ) : ?>
 						<option value="<?php echo esc_attr( $key ); ?>" <?php selected( $type, $key ); ?>>
@@ -354,7 +354,7 @@ function aichat_render_proactive_rule_row( $index, $rule, $types, $hints ) {
 			</div>
 
 			<div class="aichat-rule-condition"<?php echo ( 'exit_intent' === $type ) ? ' style="display:none;"' : ''; ?>>
-				<label for="<?php echo esc_attr( $uid ); ?>-condition"><?php esc_html_e( 'Value', 'al-bot-agency' ); ?></label>
+				<label for="<?php echo esc_attr( $uid ); ?>-condition"><?php esc_html_e( 'Value', 'orate-agency' ); ?></label>
 				<input type="text" id="<?php echo esc_attr( $uid ); ?>-condition"
 					name="<?php echo esc_attr( $name ); ?>[condition_value]"
 					value="<?php echo esc_attr( $condition ); ?>" />
@@ -364,7 +364,7 @@ function aichat_render_proactive_rule_row( $index, $rule, $types, $hints ) {
 			</div>
 
 			<div>
-				<label for="<?php echo esc_attr( $uid ); ?>-delay"><?php esc_html_e( 'Then wait (sec)', 'al-bot-agency' ); ?></label>
+				<label for="<?php echo esc_attr( $uid ); ?>-delay"><?php esc_html_e( 'Then wait (sec)', 'orate-agency' ); ?></label>
 				<input type="number" min="0" max="600" id="<?php echo esc_attr( $uid ); ?>-delay"
 					name="<?php echo esc_attr( $name ); ?>[delay_seconds]"
 					value="<?php echo esc_attr( $delay ); ?>" />
@@ -372,10 +372,10 @@ function aichat_render_proactive_rule_row( $index, $rule, $types, $hints ) {
 		</div>
 
 		<div class="aichat-rule-message">
-			<label for="<?php echo esc_attr( $uid ); ?>-message"><?php esc_html_e( 'Say', 'al-bot-agency' ); ?></label>
+			<label for="<?php echo esc_attr( $uid ); ?>-message"><?php esc_html_e( 'Say', 'orate-agency' ); ?></label>
 			<textarea id="<?php echo esc_attr( $uid ); ?>-message" rows="2"
 				name="<?php echo esc_attr( $name ); ?>[message]"
-				placeholder="<?php esc_attr_e( 'Before you go — can I help you find something?', 'al-bot-agency' ); ?>"><?php echo esc_textarea( $message ); ?></textarea>
+				placeholder="<?php esc_attr_e( 'Before you go — can I help you find something?', 'orate-agency' ); ?>"><?php echo esc_textarea( $message ); ?></textarea>
 		</div>
 	</div>
 	<?php
@@ -398,10 +398,10 @@ function aichat_settings_page() {
 	<div class="wrap aichat-wrap">
 		<h1 class="aichat-page-title">
 			<span class="dashicons dashicons-format-chat aichat-title-icon"></span>
-			<?php esc_html_e( 'Al Bot — Agency Plugin', 'al-bot-agency' ); ?>
+			<?php esc_html_e( 'Orate — Agency Plugin', 'orate-agency' ); ?>
 			<span class="aichat-version-badge">v<?php echo esc_html( AICHAT_VERSION ); ?></span>
 		</h1>
-		<p class="aichat-page-sub"><?php esc_html_e( 'Configure your AI provider, widget appearance, personality, and integrations.', 'al-bot-agency' ); ?></p>
+		<p class="aichat-page-sub"><?php esc_html_e( 'Configure your AI provider, widget appearance, personality, and integrations.', 'orate-agency' ); ?></p>
 		<?php aichat_admin_page_nav( 'settings' ); ?>
 
 		<?php settings_errors( 'aichat_messages' ); ?>
@@ -416,10 +416,10 @@ function aichat_settings_page() {
 					<div class="aichat-card">
 						<h2 class="aichat-card-title">
 							<span class="dashicons dashicons-lock"></span>
-							<?php esc_html_e( 'LLM Model Configuration', 'al-bot-agency' ); ?>
+							<?php esc_html_e( 'LLM Model Configuration', 'orate-agency' ); ?>
 						</h2>
 						<p style="font-size:13px;color:#475569;margin-bottom:18px;">
-							<?php esc_html_e( 'Select your active AI provider, enter its API key, and choose a model. You can store keys for multiple providers and switch instantly.', 'al-bot-agency' ); ?>
+							<?php esc_html_e( 'Select your active AI provider, enter its API key, and choose a model. You can store keys for multiple providers and switch instantly.', 'orate-agency' ); ?>
 						</p>
 
 						<?php
@@ -544,7 +544,7 @@ function aichat_settings_page() {
 									<span class="aichat-chip-sub"><?php echo esc_html( $p['sub'] ); ?></span>
 								</span>
 								<?php if ( $has_key ) : ?>
-									<span class="aichat-chip-dot" title="<?php esc_attr_e( 'Key saved', 'al-bot-agency' ); ?>"></span>
+									<span class="aichat-chip-dot" title="<?php esc_attr_e( 'Key saved', 'orate-agency' ); ?>"></span>
 								<?php endif; ?>
 							</label>
 							<?php endforeach; ?>
@@ -563,7 +563,7 @@ function aichat_settings_page() {
 									<tr>
 										<th scope="row" style="width:130px;">
 											<label for="<?php echo esc_attr( $p['key_id'] ); ?>">
-												<?php printf( esc_html__( '%s API Key', 'al-bot-agency' ), esc_html( $p['label'] ) ); ?>
+												<?php printf( esc_html__( '%s API Key', 'orate-agency' ), esc_html( $p['label'] ) ); ?>
 											</label>
 										</th>
 										<td>
@@ -576,16 +576,16 @@ function aichat_settings_page() {
 													class="regular-text"
 													autocomplete="new-password"
 													spellcheck="false"
-													placeholder="<?php printf( esc_attr__( 'Enter %s API key…', 'al-bot-agency' ), esc_attr( $p['label'] ) ); ?>"
+													placeholder="<?php printf( esc_attr__( 'Enter %s API key…', 'orate-agency' ), esc_attr( $p['label'] ) ); ?>"
 												/>
-												<button type="button" class="button aichat-toggle-pw" data-target="<?php echo esc_attr( $p['key_id'] ); ?>" aria-label="<?php esc_attr_e( 'Toggle visibility', 'al-bot-agency' ); ?>">
+												<button type="button" class="button aichat-toggle-pw" data-target="<?php echo esc_attr( $p['key_id'] ); ?>" aria-label="<?php esc_attr_e( 'Toggle visibility', 'orate-agency' ); ?>">
 													<span class="dashicons dashicons-visibility"></span>
 												</button>
 											</div>
 											<p class="description">
 												<?php printf(
 													/* translators: %s: documentation URL anchor */
-													esc_html__( 'How to get your API key: %s', 'al-bot-agency' ),
+													esc_html__( 'How to get your API key: %s', 'orate-agency' ),
 													'<a href="' . esc_url( $p['doc_url'] ) . '" target="_blank" rel="noopener noreferrer">' . esc_html( $p['doc_txt'] ) . '</a>'
 												); ?>
 											</p>
@@ -593,7 +593,7 @@ function aichat_settings_page() {
 									</tr>
 									<tr>
 										<th scope="row">
-											<label for="<?php echo esc_attr( $p['model_opt'] ); ?>"><?php esc_html_e( 'Model', 'al-bot-agency' ); ?></label>
+											<label for="<?php echo esc_attr( $p['model_opt'] ); ?>"><?php esc_html_e( 'Model', 'orate-agency' ); ?></label>
 										</th>
 										<td>
 											<select id="<?php echo esc_attr( $p['model_opt'] ); ?>" name="<?php echo esc_attr( $p['model_opt'] ); ?>" class="regular-text">
@@ -764,7 +764,7 @@ function aichat_settings_page() {
 					<div class="aichat-card">
 						<h2 class="aichat-card-title">
 							<span class="dashicons dashicons-admin-customizer"></span>
-							<?php esc_html_e( 'Widget Appearance', 'al-bot-agency' ); ?>
+							<?php esc_html_e( 'Widget Appearance', 'orate-agency' ); ?>
 						</h2>
 
 						<style>
@@ -795,7 +795,7 @@ function aichat_settings_page() {
 						<div class="aichat-appearance-left">
 						<table class="form-table" role="presentation">
 							<tr>
-								<th scope="row"><label for="aichat_bot_name"><?php esc_html_e( 'Bot Name', 'al-bot-agency' ); ?></label></th>
+								<th scope="row"><label for="aichat_bot_name"><?php esc_html_e( 'Bot Name', 'orate-agency' ); ?></label></th>
 								<td>
 									<input type="text" id="aichat_bot_name" name="aichat_bot_name"
 										value="<?php echo esc_attr( get_option( 'aichat_bot_name', 'AI Assistant' ) ); ?>"
@@ -803,7 +803,7 @@ function aichat_settings_page() {
 								</td>
 							</tr>
 							<tr>
-								<th scope="row"><?php esc_html_e( 'Bot Emoji / Icon', 'al-bot-agency' ); ?></th>
+								<th scope="row"><?php esc_html_e( 'Bot Emoji / Icon', 'orate-agency' ); ?></th>
 								<td>
 									<?php
 									$icon_id  = (int) get_option( 'aichat_bot_icon_id', 0 );
@@ -818,19 +818,19 @@ function aichat_settings_page() {
 									</div>
 
 									<button type="button" class="button" id="aichat-upload-icon-btn">
-										<?php esc_html_e( 'Upload Icon', 'al-bot-agency' ); ?>
+										<?php esc_html_e( 'Upload Icon', 'orate-agency' ); ?>
 									</button>
 									<button type="button" class="button" id="aichat-remove-icon-btn"
 										style="margin-left:4px;<?php echo $icon_url ? '' : 'display:none;'; ?>">
-										<?php esc_html_e( 'Remove', 'al-bot-agency' ); ?>
+										<?php esc_html_e( 'Remove', 'orate-agency' ); ?>
 									</button>
 
 									<p class="description" style="margin-top:6px;">
-										<?php esc_html_e( 'Upload a custom icon image for the chat button. Leave empty to use your active AI provider\'s logo instead.', 'al-bot-agency' ); ?>
+										<?php esc_html_e( 'Upload a custom icon image for the chat button. Leave empty to use your active AI provider\'s logo instead.', 'orate-agency' ); ?>
 									</p>
 
 									<div style="margin-top:10px;">
-										<label for="aichat_bot_emoji" style="font-weight:500;"><?php esc_html_e( 'Fallback Emoji:', 'al-bot-agency' ); ?></label>
+										<label for="aichat_bot_emoji" style="font-weight:500;"><?php esc_html_e( 'Fallback Emoji:', 'orate-agency' ); ?></label>
 										<input type="text" id="aichat_bot_emoji" name="aichat_bot_emoji"
 											value="<?php echo esc_attr( get_option( 'aichat_bot_emoji', '🤖' ) ); ?>"
 											class="small-text" maxlength="10" style="margin-left:6px;" />
@@ -843,8 +843,8 @@ function aichat_settings_page() {
 											e.preventDefault();
 											if ( frame ) { frame.open(); return; }
 											frame = wp.media({
-												title: '<?php esc_html_e( 'Select Bot Icon', 'al-bot-agency' ); ?>',
-												button: { text: '<?php esc_html_e( 'Use this image', 'al-bot-agency' ); ?>' },
+												title: '<?php esc_html_e( 'Select Bot Icon', 'orate-agency' ); ?>',
+												button: { text: '<?php esc_html_e( 'Use this image', 'orate-agency' ); ?>' },
 												multiple: false,
 												library: { type: 'image' }
 											});
@@ -868,16 +868,16 @@ function aichat_settings_page() {
 								</td>
 							</tr>
 							<tr>
-								<th scope="row"><label for="aichat_primary_color"><?php esc_html_e( 'Primary Color', 'al-bot-agency' ); ?></label></th>
+								<th scope="row"><label for="aichat_primary_color"><?php esc_html_e( 'Primary Color', 'orate-agency' ); ?></label></th>
 								<td>
 									<input type="text" id="aichat_primary_color" name="aichat_primary_color"
 										value="<?php echo esc_attr( get_option( 'aichat_primary_color', '#22c55e' ) ); ?>"
 										class="aichat-color-picker" data-default-color="#22c55e" />
-									<p class="description"><?php esc_html_e( 'Used for chat button, header, and send button.', 'al-bot-agency' ); ?></p>
+									<p class="description"><?php esc_html_e( 'Used for chat button, header, and send button.', 'orate-agency' ); ?></p>
 								</td>
 							</tr>
 							<tr>
-								<th scope="row"><label for="aichat_welcome_message"><?php esc_html_e( 'Welcome Message', 'al-bot-agency' ); ?></label></th>
+								<th scope="row"><label for="aichat_welcome_message"><?php esc_html_e( 'Welcome Message', 'orate-agency' ); ?></label></th>
 								<td>
 									<textarea id="aichat_welcome_message" name="aichat_welcome_message"
 										rows="3" class="large-text" maxlength="500"
@@ -885,37 +885,37 @@ function aichat_settings_page() {
 								</td>
 							</tr>
 							<tr>
-								<th scope="row"><?php esc_html_e( 'White-Label Branding', 'al-bot-agency' ); ?></th>
+								<th scope="row"><?php esc_html_e( 'White-Label Branding', 'orate-agency' ); ?></th>
 								<td>
 									<?php $hide_brand = get_option( 'aichat_hide_branding', '' ); ?>
 									<label style="display:flex;align-items:center;gap:10px;cursor:pointer;">
 										<input type="checkbox" name="aichat_hide_branding" value="1" <?php checked( $hide_brand, '1' ); ?> />
 										<span>
-											<strong><?php esc_html_e( 'Hide "Powered by Al Bot" badge', 'al-bot-agency' ); ?></strong><br>
-											<span class="description"><?php esc_html_e( 'When enabled, the Al Bot branding is removed from the chat widget. Your clients see only your brand.', 'al-bot-agency' ); ?></span>
+											<strong><?php esc_html_e( 'Hide "Powered by Orate" badge', 'orate-agency' ); ?></strong><br>
+											<span class="description"><?php esc_html_e( 'When enabled, the Orate branding is removed from the chat widget. Your clients see only your brand.', 'orate-agency' ); ?></span>
 										</span>
 									</label>
 								</td>
 							</tr>
 							<tr>
-								<th scope="row"><?php esc_html_e( 'Widget Theme', 'al-bot-agency' ); ?></th>
+								<th scope="row"><?php esc_html_e( 'Widget Theme', 'orate-agency' ); ?></th>
 								<td>
 									<?php $wt = get_option( 'aichat_widget_theme', 'light' ); ?>
 									<fieldset style="display:flex;gap:24px;">
 										<label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
 											<input type="radio" name="aichat_widget_theme" value="light" <?php checked( $wt, 'light' ); ?> />
-											<span>&#9728;&#65039; <strong><?php esc_html_e( 'Light', 'al-bot-agency' ); ?></strong></span>
+											<span>&#9728;&#65039; <strong><?php esc_html_e( 'Light', 'orate-agency' ); ?></strong></span>
 										</label>
 										<label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
 											<input type="radio" name="aichat_widget_theme" value="dark" <?php checked( $wt, 'dark' ); ?> />
-											<span>&#127769; <strong><?php esc_html_e( 'Dark', 'al-bot-agency' ); ?></strong></span>
+											<span>&#127769; <strong><?php esc_html_e( 'Dark', 'orate-agency' ); ?></strong></span>
 										</label>
 									</fieldset>
-									<p class="description"><?php esc_html_e( 'Choose the chat widget colour scheme shown to visitors.', 'al-bot-agency' ); ?></p>
+									<p class="description"><?php esc_html_e( 'Choose the chat widget colour scheme shown to visitors.', 'orate-agency' ); ?></p>
 								</td>
 							</tr>
 							<tr>
-								<th scope="row"><?php esc_html_e( 'Lead Capture Mode', 'al-bot-agency' ); ?></th>
+								<th scope="row"><?php esc_html_e( 'Lead Capture Mode', 'orate-agency' ); ?></th>
 								<td>
 									<?php $lcm = get_option( 'aichat_lead_capture_mode', 'conversational' ); ?>
 									<fieldset>
@@ -923,24 +923,24 @@ function aichat_settings_page() {
 											<input type="radio" name="aichat_lead_capture_mode" value="gate"
 												<?php checked( $lcm, 'gate' ); ?> style="margin-top:3px;flex-shrink:0;" />
 											<span>
-												<strong><?php esc_html_e( 'Gate the Bot', 'al-bot-agency' ); ?></strong><br>
-												<span class="description"><?php esc_html_e( 'Visitors must enter their name, email, and phone before the chat opens. Once submitted the chat unlocks and the form never shows again in the same session.', 'al-bot-agency' ); ?></span>
+												<strong><?php esc_html_e( 'Gate the Bot', 'orate-agency' ); ?></strong><br>
+												<span class="description"><?php esc_html_e( 'Visitors must enter their name, email, and phone before the chat opens. Once submitted the chat unlocks and the form never shows again in the same session.', 'orate-agency' ); ?></span>
 											</span>
 										</label>
 										<label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;">
 											<input type="radio" name="aichat_lead_capture_mode" value="conversational"
 												<?php checked( $lcm, 'conversational' ); ?> style="margin-top:3px;flex-shrink:0;" />
 											<span>
-												<strong><?php esc_html_e( 'Ask Every Conversation', 'al-bot-agency' ); ?></strong><br>
-												<span class="description"><?php esc_html_e( 'Chat opens immediately. The bot collects name, email, and phone naturally during the conversation (current behaviour).', 'al-bot-agency' ); ?></span>
+												<strong><?php esc_html_e( 'Ask Every Conversation', 'orate-agency' ); ?></strong><br>
+												<span class="description"><?php esc_html_e( 'Chat opens immediately. The bot collects name, email, and phone naturally during the conversation (current behaviour).', 'orate-agency' ); ?></span>
 											</span>
 										</label>
 										<label style="display:flex;align-items:flex-start;gap:10px;margin-top:12px;cursor:pointer;">
 											<input type="radio" name="aichat_lead_capture_mode" value="inline-form"
 												<?php checked( $lcm, 'inline-form' ); ?> style="margin-top:3px;flex-shrink:0;" />
 											<span>
-												<strong><?php esc_html_e( 'Show Form in Conversation', 'al-bot-agency' ); ?></strong><br>
-												<span class="description"><?php esc_html_e( 'Chat opens immediately and the bot shows a form inside the conversation. The visitor must fill in their name, email, and phone before they can send a message.', 'al-bot-agency' ); ?></span>
+												<strong><?php esc_html_e( 'Show Form in Conversation', 'orate-agency' ); ?></strong><br>
+												<span class="description"><?php esc_html_e( 'Chat opens immediately and the bot shows a form inside the conversation. The visitor must fill in their name, email, and phone before they can send a message.', 'orate-agency' ); ?></span>
 											</span>
 										</label>
 									</fieldset>
@@ -952,7 +952,7 @@ function aichat_settings_page() {
 						<div class="aichat-appearance-right aichat-preview-col">
 							<div class="aichat-preview-label">
 								<span class="dashicons dashicons-visibility"></span>
-								<?php esc_html_e( 'Live Preview', 'al-bot-agency' ); ?>
+								<?php esc_html_e( 'Live Preview', 'orate-agency' ); ?>
 							</div>
 							<?php
 							// The resolved avatar: custom uploaded icon takes priority, otherwise
@@ -971,7 +971,7 @@ function aichat_settings_page() {
 										</div>
 										<div>
 											<div class="aichat-preview-name" id="aichat-preview-name"><?php echo esc_html( get_option( 'aichat_bot_name', 'AI Assistant' ) ); ?></div>
-											<div class="aichat-preview-status"><?php esc_html_e( 'Online', 'al-bot-agency' ); ?></div>
+											<div class="aichat-preview-status"><?php esc_html_e( 'Online', 'orate-agency' ); ?></div>
 										</div>
 									</div>
 									<div class="aichat-preview-body">
@@ -986,7 +986,7 @@ function aichat_settings_page() {
 									<?php endif; ?>
 								</div>
 							</div>
-							<p class="aichat-preview-hint"><?php esc_html_e( 'Updates live as you edit the settings on the left. Save to apply on your site.', 'al-bot-agency' ); ?></p>
+							<p class="aichat-preview-hint"><?php esc_html_e( 'Updates live as you edit the settings on the left. Save to apply on your site.', 'orate-agency' ); ?></p>
 						</div><!-- /.aichat-appearance-right -->
 
 						</div><!-- /.aichat-appearance-grid -->
@@ -996,29 +996,29 @@ function aichat_settings_page() {
 					<div class="aichat-card">
 						<h2 class="aichat-card-title">
 							<span class="dashicons dashicons-superhero"></span>
-							<?php esc_html_e( 'Bot Personality', 'al-bot-agency' ); ?>
+							<?php esc_html_e( 'Bot Personality', 'orate-agency' ); ?>
 						</h2>
 						<table class="form-table" role="presentation">
 							<tr>
-								<th scope="row"><label for="aichat_bot_role"><?php esc_html_e( 'Bot Role', 'al-bot-agency' ); ?></label></th>
+								<th scope="row"><label for="aichat_bot_role"><?php esc_html_e( 'Bot Role', 'orate-agency' ); ?></label></th>
 								<td>
 									<input type="text" id="aichat_bot_role" name="aichat_bot_role"
 										value="<?php echo esc_attr( get_option( 'aichat_bot_role', 'Customer Support Assistant' ) ); ?>"
 										class="regular-text" maxlength="100"
-										placeholder="<?php esc_attr_e( 'e.g. Customer Support Assistant', 'al-bot-agency' ); ?>" />
-									<p class="description"><?php esc_html_e( 'How the bot introduces itself in the system prompt.', 'al-bot-agency' ); ?></p>
+										placeholder="<?php esc_attr_e( 'e.g. Customer Support Assistant', 'orate-agency' ); ?>" />
+									<p class="description"><?php esc_html_e( 'How the bot introduces itself in the system prompt.', 'orate-agency' ); ?></p>
 								</td>
 							</tr>
 							<tr>
-								<th scope="row"><label for="aichat_bot_tone"><?php esc_html_e( 'Tone', 'al-bot-agency' ); ?></label></th>
+								<th scope="row"><label for="aichat_bot_tone"><?php esc_html_e( 'Tone', 'orate-agency' ); ?></label></th>
 								<td>
 									<select id="aichat_bot_tone" name="aichat_bot_tone" class="regular-text">
 										<?php
 										$tones   = array(
-											'friendly'     => __( 'Friendly — warm and approachable', 'al-bot-agency' ),
-											'professional' => __( 'Professional — formal and precise', 'al-bot-agency' ),
-											'casual'       => __( 'Casual — relaxed and informal', 'al-bot-agency' ),
-											'formal'       => __( 'Formal — authoritative and structured', 'al-bot-agency' ),
+											'friendly'     => __( 'Friendly — warm and approachable', 'orate-agency' ),
+											'professional' => __( 'Professional — formal and precise', 'orate-agency' ),
+											'casual'       => __( 'Casual — relaxed and informal', 'orate-agency' ),
+											'formal'       => __( 'Formal — authoritative and structured', 'orate-agency' ),
 										);
 										$current = get_option( 'aichat_bot_tone', 'friendly' );
 										foreach ( $tones as $val => $label ) {
@@ -1034,22 +1034,22 @@ function aichat_settings_page() {
 								</td>
 							</tr>
 							<tr>
-								<th scope="row"><label for="aichat_bot_personality"><?php esc_html_e( 'Personality Description', 'al-bot-agency' ); ?></label></th>
+								<th scope="row"><label for="aichat_bot_personality"><?php esc_html_e( 'Personality Description', 'orate-agency' ); ?></label></th>
 								<td>
 									<textarea id="aichat_bot_personality" name="aichat_bot_personality"
 										rows="3" class="large-text" maxlength="1000"
-										placeholder="<?php esc_attr_e( 'e.g. You are enthusiastic about technology and love helping people find solutions quickly.', 'al-bot-agency' ); ?>"
+										placeholder="<?php esc_attr_e( 'e.g. You are enthusiastic about technology and love helping people find solutions quickly.', 'orate-agency' ); ?>"
 									><?php echo esc_textarea( get_option( 'aichat_bot_personality', '' ) ); ?></textarea>
 								</td>
 							</tr>
 							<tr>
-								<th scope="row"><label for="aichat_custom_instructions"><?php esc_html_e( 'Custom Instructions', 'al-bot-agency' ); ?></label></th>
+								<th scope="row"><label for="aichat_custom_instructions"><?php esc_html_e( 'Custom Instructions', 'orate-agency' ); ?></label></th>
 								<td>
 									<textarea id="aichat_custom_instructions" name="aichat_custom_instructions"
 										rows="4" class="large-text" maxlength="2000"
-										placeholder="<?php esc_attr_e( 'e.g. Always recommend booking a demo when relevant. Never discuss competitor pricing.', 'al-bot-agency' ); ?>"
+										placeholder="<?php esc_attr_e( 'e.g. Always recommend booking a demo when relevant. Never discuss competitor pricing.', 'orate-agency' ); ?>"
 									><?php echo esc_textarea( get_option( 'aichat_custom_instructions', '' ) ); ?></textarea>
-									<p class="description"><?php esc_html_e( 'Specific rules the bot must follow. Applied after all other instructions.', 'al-bot-agency' ); ?></p>
+									<p class="description"><?php esc_html_e( 'Specific rules the bot must follow. Applied after all other instructions.', 'orate-agency' ); ?></p>
 								</td>
 							</tr>
 						</table>
@@ -1065,31 +1065,31 @@ function aichat_settings_page() {
 					$trigger_types = aichat_proactive_trigger_types();
 					// Hints shown under the condition field, per trigger type.
 					$condition_hints = array(
-						'exit_intent'  => __( 'No condition needed — fires when the pointer leaves the top of the window (desktop only).', 'al-bot-agency' ),
-						'idle_on_page' => __( 'Seconds on this page with no scroll or click.', 'al-bot-agency' ),
-						'scroll_depth' => __( 'Percent of the page scrolled, 1–100.', 'al-bot-agency' ),
-						'url_contains' => __( 'Text to match in the URL path, e.g. /pricing', 'al-bot-agency' ),
-						'time_on_site' => __( 'Total seconds across the whole visit, not just this page.', 'al-bot-agency' ),
+						'exit_intent'  => __( 'No condition needed — fires when the pointer leaves the top of the window (desktop only).', 'orate-agency' ),
+						'idle_on_page' => __( 'Seconds on this page with no scroll or click.', 'orate-agency' ),
+						'scroll_depth' => __( 'Percent of the page scrolled, 1–100.', 'orate-agency' ),
+						'url_contains' => __( 'Text to match in the URL path, e.g. /pricing', 'orate-agency' ),
+						'time_on_site' => __( 'Total seconds across the whole visit, not just this page.', 'orate-agency' ),
 					);
 					?>
 					<div class="aichat-card">
 						<h2 class="aichat-card-title">
 							<span class="dashicons dashicons-megaphone"></span>
-							<?php esc_html_e( 'Proactive Triggers', 'al-bot-agency' ); ?>
+							<?php esc_html_e( 'Proactive Triggers', 'orate-agency' ); ?>
 						</h2>
 						<p style="font-size:13px;color:#475569;margin:0 0 14px;">
-							<?php esc_html_e( 'Let the chat open itself and say the first word when a visitor behaves a certain way — about to leave, stuck on a page, or reading your pricing. Each rule fires at most once per visit, and only one proactive message is ever sent per visit.', 'al-bot-agency' ); ?>
+							<?php esc_html_e( 'Let the chat open itself and say the first word when a visitor behaves a certain way — about to leave, stuck on a page, or reading your pricing. Each rule fires at most once per visit, and only one proactive message is ever sent per visit.', 'orate-agency' ); ?>
 						</p>
 
 						<table class="form-table" role="presentation">
 							<tr>
-								<th scope="row"><?php esc_html_e( 'Enable', 'al-bot-agency' ); ?></th>
+								<th scope="row"><?php esc_html_e( 'Enable', 'orate-agency' ); ?></th>
 								<td>
 									<label style="display:flex;align-items:flex-start;gap:8px;cursor:pointer;">
 										<input type="checkbox" name="aichat_proactive_enabled" value="1" <?php checked( $proactive_on ); ?> style="margin-top:3px;flex-shrink:0;" />
 										<span>
-											<strong><?php esc_html_e( 'Turn on proactive triggers', 'al-bot-agency' ); ?></strong><br>
-											<span class="description"><?php esc_html_e( 'Off by default. With this off, the widget only opens when a visitor clicks it — no rule below can fire.', 'al-bot-agency' ); ?></span>
+											<strong><?php esc_html_e( 'Turn on proactive triggers', 'orate-agency' ); ?></strong><br>
+											<span class="description"><?php esc_html_e( 'Off by default. With this off, the widget only opens when a visitor clicks it — no rule below can fire.', 'orate-agency' ); ?></span>
 										</span>
 									</label>
 								</td>
@@ -1105,7 +1105,7 @@ function aichat_settings_page() {
 						<p style="margin:12px 0 0;">
 							<button type="button" class="button" id="aichat-add-rule">
 								<span class="dashicons dashicons-plus-alt2" style="vertical-align:text-top;"></span>
-								<?php esc_html_e( 'Add Rule', 'al-bot-agency' ); ?>
+								<?php esc_html_e( 'Add Rule', 'orate-agency' ); ?>
 							</button>
 						</p>
 
@@ -1134,23 +1134,23 @@ function aichat_settings_page() {
 					<div class="aichat-card">
 						<h2 class="aichat-card-title">
 							<span class="dashicons dashicons-controls-play"></span>
-							<?php esc_html_e( 'Streaming Responses', 'al-bot-agency' ); ?>
+							<?php esc_html_e( 'Streaming Responses', 'orate-agency' ); ?>
 						</h2>
 						<table class="form-table" role="presentation">
 							<tr>
-								<th scope="row"><?php esc_html_e( 'Enable', 'al-bot-agency' ); ?></th>
+								<th scope="row"><?php esc_html_e( 'Enable', 'orate-agency' ); ?></th>
 								<td>
 									<label style="display:flex;align-items:flex-start;gap:8px;cursor:pointer;">
 										<input type="checkbox" name="aichat_streaming_enabled" value="1" <?php checked( $streaming_on ); ?> style="margin-top:3px;flex-shrink:0;" />
 										<span>
-											<strong><?php esc_html_e( 'Stream replies word by word', 'al-bot-agency' ); ?></strong><br>
-											<span class="description"><?php esc_html_e( 'The reply appears as it is written instead of arriving all at once. Off by default.', 'al-bot-agency' ); ?></span>
+											<strong><?php esc_html_e( 'Stream replies word by word', 'orate-agency' ); ?></strong><br>
+											<span class="description"><?php esc_html_e( 'The reply appears as it is written instead of arriving all at once. Off by default.', 'orate-agency' ); ?></span>
 										</span>
 									</label>
 									<div style="margin-top:12px;padding:11px 13px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;max-width:560px;">
 										<p style="margin:0;font-size:12.5px;color:#92400e;">
-											<strong><?php esc_html_e( 'Known limitation:', 'al-bot-agency' ); ?></strong>
-											<?php esc_html_e( 'Some hosts buffer the whole response no matter what the plugin asks for — this is common on Nginx in front of PHP-FPM, and on hosts that gzip every response. On those servers the reply still arrives correctly, just all at once, exactly as it does with this setting off. Turn it on, send a test message, and leave it on only if you see the text appear progressively.', 'al-bot-agency' ); ?>
+											<strong><?php esc_html_e( 'Known limitation:', 'orate-agency' ); ?></strong>
+											<?php esc_html_e( 'Some hosts buffer the whole response no matter what the plugin asks for — this is common on Nginx in front of PHP-FPM, and on hosts that gzip every response. On those servers the reply still arrives correctly, just all at once, exactly as it does with this setting off. Turn it on, send a test message, and leave it on only if you see the text appear progressively.', 'orate-agency' ); ?>
 										</p>
 									</div>
 								</td>
@@ -1162,26 +1162,26 @@ function aichat_settings_page() {
 					<div class="aichat-card">
 						<h2 class="aichat-card-title">
 							<span class="dashicons dashicons-share-alt2"></span>
-							<?php esc_html_e( 'Integrations', 'al-bot-agency' ); ?>
+							<?php esc_html_e( 'Integrations', 'orate-agency' ); ?>
 						</h2>
 						<table class="form-table" role="presentation">
 							<tr>
-								<th scope="row"><label for="aichat_handoff_email"><?php esc_html_e( 'Handoff Notification Emails', 'al-bot-agency' ); ?></label></th>
+								<th scope="row"><label for="aichat_handoff_email"><?php esc_html_e( 'Handoff Notification Emails', 'orate-agency' ); ?></label></th>
 								<td>
 									<div style="display:flex;gap:8px;align-items:flex-start;max-width:460px;">
 										<textarea id="aichat_handoff_email" name="aichat_handoff_email" rows="2"
 											class="regular-text" style="flex:1;min-width:0;font-family:inherit;resize:vertical;"
-											placeholder="<?php esc_attr_e( 'you@example.com, teammate@example.com', 'al-bot-agency' ); ?>"
+											placeholder="<?php esc_attr_e( 'you@example.com, teammate@example.com', 'orate-agency' ); ?>"
 										><?php echo esc_textarea( get_option( 'aichat_handoff_email', '' ) ); ?></textarea>
 										<button type="button" class="button" id="aichat-send-test-email" style="flex-shrink:0;white-space:nowrap;">
-											<?php esc_html_e( 'Send Test Email', 'al-bot-agency' ); ?>
+											<?php esc_html_e( 'Send Test Email', 'orate-agency' ); ?>
 										</button>
 									</div>
 									<p id="aichat-test-email-status" style="font-size:12.5px;margin-top:6px;min-height:16px;"></p>
-									<p class="description"><?php esc_html_e( 'When a visitor requests a human agent or the bot cannot answer, an email with their details and transcript is sent to every address here. Separate multiple addresses with a comma or a new line.', 'al-bot-agency' ); ?></p>
+									<p class="description"><?php esc_html_e( 'When a visitor requests a human agent or the bot cannot answer, an email with their details and transcript is sent to every address here. Separate multiple addresses with a comma or a new line.', 'orate-agency' ); ?></p>
 									<?php if ( empty( get_option( 'aichat_handoff_email', '' ) ) ) : ?>
 										<p style="color:#b45309;font-size:12px;margin-top:6px;">
-											<?php esc_html_e( 'Please set at least one handoff email to enable this feature', 'al-bot-agency' ); ?>
+											<?php esc_html_e( 'Please set at least one handoff email to enable this feature', 'orate-agency' ); ?>
 										</p>
 									<?php endif; ?>
 								</td>
@@ -1189,7 +1189,7 @@ function aichat_settings_page() {
 						</table>
 					</div>
 
-					<?php submit_button( __( 'Save Settings', 'al-bot-agency' ), 'primary large' ); ?>
+					<?php submit_button( __( 'Save Settings', 'orate-agency' ), 'primary large' ); ?>
 				</form>
 			</div>
 
@@ -1200,22 +1200,22 @@ function aichat_settings_page() {
 				<div class="aichat-card">
 					<h2 class="aichat-card-title">
 						<span class="dashicons dashicons-update"></span>
-						<?php esc_html_e( 'Train AI', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Train AI', 'orate-agency' ); ?>
 					</h2>
-					<p style="font-size:13px;color:#475569;"><?php esc_html_e( 'Indexes your site content, KB URLs, and uploaded files into the AI system prompt.', 'al-bot-agency' ); ?></p>
+					<p style="font-size:13px;color:#475569;"><?php esc_html_e( 'Indexes your site content, KB URLs, and uploaded files into the AI system prompt.', 'orate-agency' ); ?></p>
 
 					<div id="aichat-trained-info" class="aichat-trained-info" <?php echo $last_trained ? '' : 'style="display:none"'; ?>>
 						<span class="dashicons dashicons-yes-alt"></span>
 						<span id="aichat-trained-text">
 							<?php if ( $last_trained ) {
-								printf( esc_html__( 'Trained on %1$d items. Last: %2$s', 'al-bot-agency' ), $post_count, esc_html( $last_trained ) );
+								printf( esc_html__( 'Trained on %1$d items. Last: %2$s', 'orate-agency' ), $post_count, esc_html( $last_trained ) );
 							} ?>
 						</span>
 					</div>
 
 					<button type="button" id="aichat-train-btn" class="button button-primary aichat-train-btn">
 						<span class="dashicons dashicons-update aichat-spin-target"></span>
-						<?php esc_html_e( 'Train Now', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Train Now', 'orate-agency' ); ?>
 					</button>
 					<p id="aichat-train-status" class="aichat-train-status" role="status" aria-live="polite"></p>
 				</div>
@@ -1224,54 +1224,54 @@ function aichat_settings_page() {
 				<div class="aichat-card">
 					<h2 class="aichat-card-title">
 						<span class="dashicons dashicons-shortcode"></span>
-						<?php esc_html_e( 'Embed via Shortcode', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Embed via Shortcode', 'orate-agency' ); ?>
 					</h2>
 					<p style="font-size:13px;color:#475569;margin-bottom:10px;">
-						<?php esc_html_e( 'Place the chat widget inline on any page or post:', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Place the chat widget inline on any page or post:', 'orate-agency' ); ?>
 					</p>
-					<div class="aichat-shortcode-box" title="<?php esc_attr_e( 'Click to select', 'al-bot-agency' ); ?>">[ai_site_chat]</div>
-					<p style="font-size:12px;color:#94a3b8;margin-top:8px;"><?php esc_html_e( 'The floating widget appears on all pages when your API key is set.', 'al-bot-agency' ); ?></p>
+					<div class="aichat-shortcode-box" title="<?php esc_attr_e( 'Click to select', 'orate-agency' ); ?>">[ai_site_chat]</div>
+					<p style="font-size:12px;color:#94a3b8;margin-top:8px;"><?php esc_html_e( 'The floating widget appears on all pages when your API key is set.', 'orate-agency' ); ?></p>
 				</div>
 
 				<!-- Status -->
 				<div class="aichat-card">
 					<h2 class="aichat-card-title">
 						<span class="dashicons dashicons-info-outline"></span>
-						<?php esc_html_e( 'Plugin Status', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Plugin Status', 'orate-agency' ); ?>
 					</h2>
 					<ul class="aichat-status-list">
-						<li><?php esc_html_e( 'API Key:', 'al-bot-agency' ); ?>
+						<li><?php esc_html_e( 'API Key:', 'orate-agency' ); ?>
 							<?php if ( ! empty( aichat_get_active_provider()['api_key'] ) ) : ?>
-								<span class="aichat-badge aichat-badge--green"><?php esc_html_e( 'Set', 'al-bot-agency' ); ?></span>
+								<span class="aichat-badge aichat-badge--green"><?php esc_html_e( 'Set', 'orate-agency' ); ?></span>
 							<?php else : ?>
-								<span class="aichat-badge aichat-badge--red"><?php esc_html_e( 'Missing', 'al-bot-agency' ); ?></span>
+								<span class="aichat-badge aichat-badge--red"><?php esc_html_e( 'Missing', 'orate-agency' ); ?></span>
 							<?php endif; ?>
 						</li>
-						<li><?php esc_html_e( 'Trained:', 'al-bot-agency' ); ?>
+						<li><?php esc_html_e( 'Trained:', 'orate-agency' ); ?>
 							<?php if ( $last_trained ) : ?>
-								<span class="aichat-badge aichat-badge--green"><?php esc_html_e( 'Yes', 'al-bot-agency' ); ?></span>
+								<span class="aichat-badge aichat-badge--green"><?php esc_html_e( 'Yes', 'orate-agency' ); ?></span>
 							<?php else : ?>
-								<span class="aichat-badge aichat-badge--yellow"><?php esc_html_e( 'Not yet', 'al-bot-agency' ); ?></span>
+								<span class="aichat-badge aichat-badge--yellow"><?php esc_html_e( 'Not yet', 'orate-agency' ); ?></span>
 							<?php endif; ?>
 						</li>
-						<li><?php esc_html_e( 'Auto-retrain:', 'al-bot-agency' ); ?>
+						<li><?php esc_html_e( 'Auto-retrain:', 'orate-agency' ); ?>
 							<?php if ( wp_next_scheduled( 'aichat_auto_train_cron' ) ) : ?>
-								<span class="aichat-badge aichat-badge--green"><?php esc_html_e( 'Active', 'al-bot-agency' ); ?></span>
+								<span class="aichat-badge aichat-badge--green"><?php esc_html_e( 'Active', 'orate-agency' ); ?></span>
 							<?php else : ?>
-								<span class="aichat-badge aichat-badge--red"><?php esc_html_e( 'Inactive', 'al-bot-agency' ); ?></span>
+								<span class="aichat-badge aichat-badge--red"><?php esc_html_e( 'Inactive', 'orate-agency' ); ?></span>
 							<?php endif; ?>
 						</li>
 						<?php
 						$handoff_email = get_option( 'aichat_handoff_email', '' );
 						$mail_error    = get_option( 'aichat_last_mail_error', null );
 						?>
-						<li><?php esc_html_e( 'Handoff Email:', 'al-bot-agency' ); ?>
+						<li><?php esc_html_e( 'Handoff Email:', 'orate-agency' ); ?>
 							<?php if ( empty( $handoff_email ) ) : ?>
-								<span class="aichat-badge aichat-badge--yellow"><?php esc_html_e( 'Not set', 'al-bot-agency' ); ?></span>
+								<span class="aichat-badge aichat-badge--yellow"><?php esc_html_e( 'Not set', 'orate-agency' ); ?></span>
 							<?php elseif ( ! empty( $mail_error ) ) : ?>
-								<span class="aichat-badge aichat-badge--red" title="<?php echo esc_attr( $mail_error['message'] ?? '' ); ?>"><?php esc_html_e( 'Last send failed', 'al-bot-agency' ); ?></span>
+								<span class="aichat-badge aichat-badge--red" title="<?php echo esc_attr( $mail_error['message'] ?? '' ); ?>"><?php esc_html_e( 'Last send failed', 'orate-agency' ); ?></span>
 							<?php else : ?>
-								<span class="aichat-badge aichat-badge--green"><?php esc_html_e( 'Configured', 'al-bot-agency' ); ?></span>
+								<span class="aichat-badge aichat-badge--green"><?php esc_html_e( 'Configured', 'orate-agency' ); ?></span>
 							<?php endif; ?>
 						</li>
 					</ul>
@@ -1358,12 +1358,12 @@ function aichat_settings_page() {
 			var email   = $.trim($('#aichat_handoff_email').val());
 
 			if (!email) {
-				$status.css('color', '#dc2626').text('<?php echo esc_js( __( 'Enter at least one email address first.', 'al-bot-agency' ) ); ?>');
+				$status.css('color', '#dc2626').text('<?php echo esc_js( __( 'Enter at least one email address first.', 'orate-agency' ) ); ?>');
 				return;
 			}
 
 			$btn.prop('disabled', true);
-			$status.css('color', '#64748b').text('<?php echo esc_js( __( 'Sending…', 'al-bot-agency' ) ); ?>');
+			$status.css('color', '#64748b').text('<?php echo esc_js( __( 'Sending…', 'orate-agency' ) ); ?>');
 
 			$.ajax({
 				url: ajaxurl, type: 'POST',
@@ -1376,11 +1376,11 @@ function aichat_settings_page() {
 					if (r.success) {
 						$status.css('color', '#15803d').text(r.data.message);
 					} else {
-						$status.css('color', '#dc2626').text(r.data && r.data.message ? r.data.message : '<?php echo esc_js( __( 'Failed to send test email.', 'al-bot-agency' ) ); ?>');
+						$status.css('color', '#dc2626').text(r.data && r.data.message ? r.data.message : '<?php echo esc_js( __( 'Failed to send test email.', 'orate-agency' ) ); ?>');
 					}
 				},
 				error: function () {
-					$status.css('color', '#dc2626').text('<?php echo esc_js( __( 'Server error while sending test email.', 'al-bot-agency' ) ); ?>');
+					$status.css('color', '#dc2626').text('<?php echo esc_js( __( 'Server error while sending test email.', 'orate-agency' ) ); ?>');
 				},
 				complete: function () {
 					$btn.prop('disabled', false);
@@ -1514,9 +1514,9 @@ function aichat_knowledge_page() {
 	<div class="wrap aichat-wrap">
 		<h1 class="aichat-page-title">
 			<span class="dashicons dashicons-database aichat-title-icon"></span>
-			<?php esc_html_e( 'Knowledge Base', 'al-bot-agency' ); ?>
+			<?php esc_html_e( 'Knowledge Base', 'orate-agency' ); ?>
 		</h1>
-		<p class="aichat-page-sub"><?php esc_html_e( 'Add URLs and upload files to expand the AI\'s knowledge. After adding sources, click "Train Now" to apply.', 'al-bot-agency' ); ?></p>
+		<p class="aichat-page-sub"><?php esc_html_e( 'Add URLs and upload files to expand the AI\'s knowledge. After adding sources, click "Train Now" to apply.', 'orate-agency' ); ?></p>
 		<?php aichat_admin_page_nav( 'kb' ); ?>
 
 		<div class="aichat-admin-layout">
@@ -1526,7 +1526,7 @@ function aichat_knowledge_page() {
 				<div class="aichat-card">
 					<h2 class="aichat-card-title">
 						<span class="dashicons dashicons-admin-links"></span>
-						<?php esc_html_e( 'Website URL Sources', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Website URL Sources', 'orate-agency' ); ?>
 					</h2>
 					<p style="font-size:13px;color:#475569;margin-bottom:12px;">
 						<?php
@@ -1544,7 +1544,7 @@ function aichat_knowledge_page() {
 					<div style="margin-top:10px;display:flex;align-items:center;gap:10px;">
 						<button type="button" id="aichat-save-urls" class="button button-primary">
 							<span class="dashicons dashicons-saved" style="margin-right:4px;"></span>
-							<?php esc_html_e( 'Save URLs', 'al-bot-agency' ); ?>
+							<?php esc_html_e( 'Save URLs', 'orate-agency' ); ?>
 						</button>
 						<span id="aichat-url-status" style="font-size:13px;"></span>
 					</div>
@@ -1554,16 +1554,16 @@ function aichat_knowledge_page() {
 				<div class="aichat-card">
 					<h2 class="aichat-card-title">
 						<span class="dashicons dashicons-upload"></span>
-						<?php esc_html_e( 'Upload Knowledge Files', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Upload Knowledge Files', 'orate-agency' ); ?>
 					</h2>
 					<p style="font-size:13px;color:#475569;margin-bottom:16px;">
-						<?php esc_html_e( 'Supported formats: PDF, TXT, CSV, DOCX, PPTX, JSON (max 10 MB each).', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Supported formats: PDF, TXT, CSV, DOCX, PPTX, JSON (max 10 MB each).', 'orate-agency' ); ?>
 					</p>
 
 					<div id="aichat-drop-zone" class="aichat-kb-drop">
 						<div class="aichat-kb-drop-icon">📄</div>
-						<strong><?php esc_html_e( 'Drop files here or click to browse', 'al-bot-agency' ); ?></strong>
-						<p><?php esc_html_e( 'PDF, TXT, CSV, DOCX, PPTX, JSON', 'al-bot-agency' ); ?></p>
+						<strong><?php esc_html_e( 'Drop files here or click to browse', 'orate-agency' ); ?></strong>
+						<p><?php esc_html_e( 'PDF, TXT, CSV, DOCX, PPTX, JSON', 'orate-agency' ); ?></p>
 					</div>
 					<input type="file" id="aichat-file-input" accept=".pdf,.txt,.csv,.docx,.pptx,.json" multiple />
 
@@ -1578,15 +1578,15 @@ function aichat_knowledge_page() {
 				<div class="aichat-card">
 					<h2 class="aichat-card-title">
 						<span class="dashicons dashicons-media-document"></span>
-						<?php esc_html_e( 'Uploaded Files', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Uploaded Files', 'orate-agency' ); ?>
 						<span class="aichat-badge aichat-badge--blue" id="aichat-file-count"><?php echo count( $files ); ?></span>
 					</h2>
 
 					<?php if ( empty( $files ) ) : ?>
 						<div id="aichat-no-files" class="aichat-empty">
 							<span class="dashicons dashicons-media-document"></span>
-							<strong><?php esc_html_e( 'No files yet', 'al-bot-agency' ); ?></strong>
-							<span><?php esc_html_e( 'Upload files above to add them to the knowledge base.', 'al-bot-agency' ); ?></span>
+							<strong><?php esc_html_e( 'No files yet', 'orate-agency' ); ?></strong>
+							<span><?php esc_html_e( 'Upload files above to add them to the knowledge base.', 'orate-agency' ); ?></span>
 						</div>
 					<?php endif; ?>
 
@@ -1600,7 +1600,7 @@ function aichat_knowledge_page() {
 									<strong title="<?php echo esc_attr( $file->file_name ); ?>"><?php echo esc_html( $file->file_name ); ?></strong>
 									<span><?php echo esc_html( aichat_human_filesize( (int) $file->file_size ) ); ?> &middot; <?php echo esc_html( $file->uploaded_at ); ?></span>
 								</div>
-								<button type="button" class="aichat-file-delete" data-id="<?php echo (int) $file->id; ?>" title="<?php esc_attr_e( 'Delete', 'al-bot-agency' ); ?>">
+								<button type="button" class="aichat-file-delete" data-id="<?php echo (int) $file->id; ?>" title="<?php esc_attr_e( 'Delete', 'orate-agency' ); ?>">
 									<span class="dashicons dashicons-trash"></span>
 								</button>
 							</li>
@@ -1615,22 +1615,22 @@ function aichat_knowledge_page() {
 				<div class="aichat-card">
 					<h2 class="aichat-card-title">
 						<span class="dashicons dashicons-update"></span>
-						<?php esc_html_e( 'Train AI', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Train AI', 'orate-agency' ); ?>
 					</h2>
-					<p style="font-size:13px;color:#475569;"><?php esc_html_e( 'Re-index all sources: WordPress content, URLs, and uploaded files.', 'al-bot-agency' ); ?></p>
+					<p style="font-size:13px;color:#475569;"><?php esc_html_e( 'Re-index all sources: WordPress content, URLs, and uploaded files.', 'orate-agency' ); ?></p>
 
 					<div id="aichat-trained-info" class="aichat-trained-info" <?php echo $last_trained ? '' : 'style="display:none"'; ?>>
 						<span class="dashicons dashicons-yes-alt"></span>
 						<span id="aichat-trained-text">
 							<?php if ( $last_trained ) {
-								printf( esc_html__( '%1$d items indexed. Last: %2$s', 'al-bot-agency' ), $post_count, esc_html( $last_trained ) );
+								printf( esc_html__( '%1$d items indexed. Last: %2$s', 'orate-agency' ), $post_count, esc_html( $last_trained ) );
 							} ?>
 						</span>
 					</div>
 
 					<button type="button" id="aichat-train-btn" class="button button-primary aichat-train-btn">
 						<span class="dashicons dashicons-update aichat-spin-target"></span>
-						<?php esc_html_e( 'Train Now', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Train Now', 'orate-agency' ); ?>
 					</button>
 					<p id="aichat-train-status" class="aichat-train-status" role="status" aria-live="polite"></p>
 				</div>
@@ -1638,21 +1638,21 @@ function aichat_knowledge_page() {
 				<div class="aichat-card">
 					<h2 class="aichat-card-title">
 						<span class="dashicons dashicons-info-outline"></span>
-						<?php esc_html_e( 'Knowledge Sources', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Knowledge Sources', 'orate-agency' ); ?>
 					</h2>
 					<ul class="aichat-status-list">
 						<li>
-							<?php esc_html_e( 'WP Pages/Posts:', 'al-bot-agency' ); ?>
+							<?php esc_html_e( 'WP Pages/Posts:', 'orate-agency' ); ?>
 							<span class="aichat-badge aichat-badge--green">
 								<?php echo (int) wp_count_posts( 'post' )->publish + (int) wp_count_posts( 'page' )->publish; ?>
 							</span>
 						</li>
 						<li>
-							<?php esc_html_e( 'Extra URLs:', 'al-bot-agency' ); ?>
+							<?php esc_html_e( 'Extra URLs:', 'orate-agency' ); ?>
 							<span class="aichat-badge aichat-badge--blue"><?php echo count( (array) $kb_urls ); ?></span>
 						</li>
 						<li>
-							<?php esc_html_e( 'Uploaded Files:', 'al-bot-agency' ); ?>
+							<?php esc_html_e( 'Uploaded Files:', 'orate-agency' ); ?>
 							<span class="aichat-badge aichat-badge--blue"><?php echo count( $files ); ?></span>
 						</li>
 					</ul>
@@ -1670,7 +1670,7 @@ function aichat_knowledge_page() {
 		$('#aichat-save-urls').on('click', function () {
 			var $btn = $(this), $status = $('#aichat-url-status');
 			$btn.prop('disabled', true);
-			$status.css('color', '#64748b').text('<?php echo esc_js( __( 'Saving…', 'al-bot-agency' ) ); ?>');
+			$status.css('color', '#64748b').text('<?php echo esc_js( __( 'Saving…', 'orate-agency' ) ); ?>');
 			$.ajax({
 				url: aichatAdmin.ajaxUrl, type: 'POST',
 				data: { action: 'aichat_save_kb_urls', nonce: aichatAdmin.urlNonce, urls: $('#aichat-kb-urls').val() },
@@ -1678,10 +1678,10 @@ function aichat_knowledge_page() {
 					if (r.success) {
 						$status.css('color', '#15803d').text(r.data.message);
 					} else {
-						$status.css('color', '#dc2626').text(r.data && r.data.message ? r.data.message : '<?php echo esc_js( __( 'Failed.', 'al-bot-agency' ) ); ?>');
+						$status.css('color', '#dc2626').text(r.data && r.data.message ? r.data.message : '<?php echo esc_js( __( 'Failed.', 'orate-agency' ) ); ?>');
 					}
 				},
-				error: function () { $status.css('color', '#dc2626').text('<?php echo esc_js( __( 'Error saving URLs.', 'al-bot-agency' ) ); ?>'); },
+				error: function () { $status.css('color', '#dc2626').text('<?php echo esc_js( __( 'Error saving URLs.', 'orate-agency' ) ); ?>'); },
 				complete: function () { $btn.prop('disabled', false); }
 			});
 		});
@@ -1712,7 +1712,7 @@ function aichat_knowledge_page() {
 			var $label    = $('#aichat-upload-label');
 			var $status   = $('#aichat-upload-status');
 
-			$label.text('<?php echo esc_js( __( 'Uploading', 'al-bot-agency' ) ); ?> ' + file.name + '…');
+			$label.text('<?php echo esc_js( __( 'Uploading', 'orate-agency' ) ); ?> ' + file.name + '…');
 			$fill.css('width', '0%');
 			$progress.show();
 			$status.text('');
@@ -1742,11 +1742,11 @@ function aichat_knowledge_page() {
 						$status.css('color', '#15803d').text('✓ ' + r.data.file_name + ' — ' + r.data.message);
 						addFileToList(r.data);
 					} else {
-						$status.css('color', '#dc2626').text('✗ ' + file.name + ': ' + (r.data && r.data.message ? r.data.message : '<?php echo esc_js( __( 'Upload failed.', 'al-bot-agency' ) ); ?>'));
+						$status.css('color', '#dc2626').text('✗ ' + file.name + ': ' + (r.data && r.data.message ? r.data.message : '<?php echo esc_js( __( 'Upload failed.', 'orate-agency' ) ); ?>'));
 					}
 				},
 				error: function () {
-					$status.css('color', '#dc2626').text('✗ <?php echo esc_js( __( 'Server error during upload.', 'al-bot-agency' ) ); ?>');
+					$status.css('color', '#dc2626').text('✗ <?php echo esc_js( __( 'Server error during upload.', 'orate-agency' ) ); ?>');
 				},
 				complete: function () {
 					uploadNext(files, idx + 1);
@@ -1966,9 +1966,9 @@ function aichat_analytics_page() {
 	<div class="wrap aichat-wrap">
 		<h1 class="aichat-page-title">
 			<span class="dashicons dashicons-chart-bar aichat-title-icon"></span>
-			<?php esc_html_e( 'Analytics', 'al-bot-agency' ); ?>
+			<?php esc_html_e( 'Analytics', 'orate-agency' ); ?>
 		</h1>
-		<p class="aichat-page-sub"><?php esc_html_e( 'See what visitors ask, spot knowledge gaps, and track leads over time.', 'al-bot-agency' ); ?></p>
+		<p class="aichat-page-sub"><?php esc_html_e( 'See what visitors ask, spot knowledge gaps, and track leads over time.', 'orate-agency' ); ?></p>
 		<?php aichat_admin_page_nav( 'analytics' ); ?>
 
 		<?php
@@ -1979,16 +1979,16 @@ function aichat_analytics_page() {
 
 		<!-- Date filter -->
 		<div class="aichat-filter-bar">
-			<span><?php esc_html_e( 'Period:', 'al-bot-agency' ); ?></span>
+			<span><?php esc_html_e( 'Period:', 'orate-agency' ); ?></span>
 			<div class="aichat-filter-pills">
 				<a href="<?php echo esc_url( add_query_arg( 'range', '7' ) ); ?>" class="<?php echo $range === '7' ? 'active' : ''; ?>">
-					<?php esc_html_e( 'Last 7 days', 'al-bot-agency' ); ?>
+					<?php esc_html_e( 'Last 7 days', 'orate-agency' ); ?>
 				</a>
 				<a href="<?php echo esc_url( add_query_arg( 'range', '30' ) ); ?>" class="<?php echo $range === '30' ? 'active' : ''; ?>">
-					<?php esc_html_e( 'Last 30 days', 'al-bot-agency' ); ?>
+					<?php esc_html_e( 'Last 30 days', 'orate-agency' ); ?>
 				</a>
 				<a href="<?php echo esc_url( add_query_arg( 'range', 'all' ) ); ?>" class="<?php echo $range === 'all' ? 'active' : ''; ?>">
-					<?php esc_html_e( 'All time', 'al-bot-agency' ); ?>
+					<?php esc_html_e( 'All time', 'orate-agency' ); ?>
 				</a>
 			</div>
 		</div>
@@ -1999,28 +1999,28 @@ function aichat_analytics_page() {
 				<span class="aichat-stat-icon"><span class="dashicons dashicons-format-chat"></span></span>
 				<div>
 					<div class="aichat-stat-num"><?php echo esc_html( number_format( $total_conversations ) ); ?></div>
-					<div class="aichat-stat-label"><?php esc_html_e( 'Conversations', 'al-bot-agency' ); ?></div>
+					<div class="aichat-stat-label"><?php esc_html_e( 'Conversations', 'orate-agency' ); ?></div>
 				</div>
 			</div>
 			<div class="aichat-stat-card aichat-stat-card--blue">
 				<span class="aichat-stat-icon"><span class="dashicons dashicons-admin-comments"></span></span>
 				<div>
 					<div class="aichat-stat-num"><?php echo esc_html( number_format( $total_messages ) ); ?></div>
-					<div class="aichat-stat-label"><?php esc_html_e( 'Messages', 'al-bot-agency' ); ?></div>
+					<div class="aichat-stat-label"><?php esc_html_e( 'Messages', 'orate-agency' ); ?></div>
 				</div>
 			</div>
 			<div class="aichat-stat-card aichat-stat-card--amber">
 				<span class="aichat-stat-icon"><span class="dashicons dashicons-warning"></span></span>
 				<div>
 					<div class="aichat-stat-num"><?php echo esc_html( number_format( $total_unanswered ) ); ?></div>
-					<div class="aichat-stat-label"><?php esc_html_e( 'Knowledge Gaps', 'al-bot-agency' ); ?></div>
+					<div class="aichat-stat-label"><?php esc_html_e( 'Knowledge Gaps', 'orate-agency' ); ?></div>
 				</div>
 			</div>
 			<div class="aichat-stat-card aichat-stat-card--red">
 				<span class="aichat-stat-icon"><span class="dashicons dashicons-groups"></span></span>
 				<div>
 					<div class="aichat-stat-num"><?php echo esc_html( number_format( $total_leads ) ); ?></div>
-					<div class="aichat-stat-label"><?php esc_html_e( 'Total Leads', 'al-bot-agency' ); ?></div>
+					<div class="aichat-stat-label"><?php esc_html_e( 'Total Leads', 'orate-agency' ); ?></div>
 				</div>
 			</div>
 		</div>
@@ -2032,27 +2032,27 @@ function aichat_analytics_page() {
 				<div class="aichat-card">
 					<h2 class="aichat-card-title">
 						<span class="dashicons dashicons-format-status"></span>
-						<?php esc_html_e( 'Conversations', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Conversations', 'orate-agency' ); ?>
 					</h2>
 					<p style="font-size:13px;color:#475569;margin-bottom:12px;">
-						<?php esc_html_e( 'Open any conversation to replay it exactly as the visitor saw it.', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Open any conversation to replay it exactly as the visitor saw it.', 'orate-agency' ); ?>
 					</p>
 					<?php if ( empty( $sessions ) ) : ?>
 						<div class="aichat-empty">
 							<span class="dashicons dashicons-format-status"></span>
-							<strong><?php esc_html_e( 'No conversations yet', 'al-bot-agency' ); ?></strong>
-							<span><?php esc_html_e( 'Conversations appear here once visitors start chatting.', 'al-bot-agency' ); ?></span>
+							<strong><?php esc_html_e( 'No conversations yet', 'orate-agency' ); ?></strong>
+							<span><?php esc_html_e( 'Conversations appear here once visitors start chatting.', 'orate-agency' ); ?></span>
 						</div>
 					<?php else : ?>
 						<div class="aichat-q-card">
 						<table class="aichat-q-table">
 							<thead>
 								<tr>
-									<th style="width:150px;"><?php esc_html_e( 'Conversation', 'al-bot-agency' ); ?></th>
-									<th><?php esc_html_e( 'Session', 'al-bot-agency' ); ?></th>
-									<th style="width:90px;text-align:center;"><?php esc_html_e( 'Messages', 'al-bot-agency' ); ?></th>
-									<th style="width:90px;text-align:center;"><?php esc_html_e( 'Gaps', 'al-bot-agency' ); ?></th>
-									<th style="width:150px;"><?php esc_html_e( 'Started', 'al-bot-agency' ); ?></th>
+									<th style="width:150px;"><?php esc_html_e( 'Conversation', 'orate-agency' ); ?></th>
+									<th><?php esc_html_e( 'Session', 'orate-agency' ); ?></th>
+									<th style="width:90px;text-align:center;"><?php esc_html_e( 'Messages', 'orate-agency' ); ?></th>
+									<th style="width:90px;text-align:center;"><?php esc_html_e( 'Gaps', 'orate-agency' ); ?></th>
+									<th style="width:150px;"><?php esc_html_e( 'Started', 'orate-agency' ); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -2063,7 +2063,7 @@ function aichat_analytics_page() {
 											<button type="button" class="button button-small aichat-view-convo"
 												data-session="<?php echo esc_attr( $sess->session_id ); ?>">
 												<span class="dashicons dashicons-visibility" style="vertical-align:text-top;"></span>
-												<?php esc_html_e( 'View Conversation', 'al-bot-agency' ); ?>
+												<?php esc_html_e( 'View Conversation', 'orate-agency' ); ?>
 											</button>
 										</td>
 										<td>
@@ -2093,22 +2093,22 @@ function aichat_analytics_page() {
 				<div class="aichat-card">
 					<h2 class="aichat-card-title">
 						<span class="dashicons dashicons-format-chat"></span>
-						<?php esc_html_e( 'Top Questions', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Top Questions', 'orate-agency' ); ?>
 					</h2>
 					<?php if ( empty( $top_questions ) ) : ?>
 						<div class="aichat-empty">
 							<span class="dashicons dashicons-format-chat"></span>
-							<strong><?php esc_html_e( 'No data yet', 'al-bot-agency' ); ?></strong>
-							<span><?php esc_html_e( 'Questions will appear here as visitors chat.', 'al-bot-agency' ); ?></span>
+							<strong><?php esc_html_e( 'No data yet', 'orate-agency' ); ?></strong>
+							<span><?php esc_html_e( 'Questions will appear here as visitors chat.', 'orate-agency' ); ?></span>
 						</div>
 					<?php else : ?>
 						<div class="aichat-q-card">
 						<table class="aichat-q-table">
 							<thead>
 								<tr>
-									<th style="width:50px;"><?php esc_html_e( '#', 'al-bot-agency' ); ?></th>
-									<th><?php esc_html_e( 'Question', 'al-bot-agency' ); ?></th>
-									<th style="width:80px;text-align:center;"><?php esc_html_e( 'Asked', 'al-bot-agency' ); ?></th>
+									<th style="width:50px;"><?php esc_html_e( '#', 'orate-agency' ); ?></th>
+									<th><?php esc_html_e( 'Question', 'orate-agency' ); ?></th>
+									<th style="width:80px;text-align:center;"><?php esc_html_e( 'Asked', 'orate-agency' ); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -2129,24 +2129,24 @@ function aichat_analytics_page() {
 				<div class="aichat-card">
 					<h2 class="aichat-card-title">
 						<span class="dashicons dashicons-warning"></span>
-						<?php esc_html_e( 'Knowledge Gaps (Unanswered)', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Knowledge Gaps (Unanswered)', 'orate-agency' ); ?>
 					</h2>
 					<p style="font-size:13px;color:#475569;margin-bottom:12px;">
-						<?php esc_html_e( 'Questions the bot could not confidently answer. Use these to improve your Knowledge Base.', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Questions the bot could not confidently answer. Use these to improve your Knowledge Base.', 'orate-agency' ); ?>
 					</p>
 					<?php if ( empty( $knowledge_gaps ) ) : ?>
 						<div class="aichat-empty">
 							<span class="dashicons dashicons-yes-alt"></span>
-							<strong><?php esc_html_e( 'No knowledge gaps', 'al-bot-agency' ); ?></strong>
-							<span><?php esc_html_e( 'No knowledge gaps detected. Your AI is handling all questions well!', 'al-bot-agency' ); ?></span>
+							<strong><?php esc_html_e( 'No knowledge gaps', 'orate-agency' ); ?></strong>
+							<span><?php esc_html_e( 'No knowledge gaps detected. Your AI is handling all questions well!', 'orate-agency' ); ?></span>
 						</div>
 					<?php else : ?>
 						<div class="aichat-q-card">
 						<table class="aichat-q-table">
 							<thead>
 								<tr>
-									<th><?php esc_html_e( 'Unanswered Question', 'al-bot-agency' ); ?></th>
-									<th style="width:120px;"><?php esc_html_e( 'Date', 'al-bot-agency' ); ?></th>
+									<th><?php esc_html_e( 'Unanswered Question', 'orate-agency' ); ?></th>
+									<th style="width:120px;"><?php esc_html_e( 'Date', 'orate-agency' ); ?></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -2177,16 +2177,16 @@ function aichat_analytics_page() {
 				<div class="aichat-card">
 					<h2 class="aichat-card-title">
 						<span class="dashicons dashicons-lightbulb"></span>
-						<?php esc_html_e( 'Improve Coverage', 'al-bot-agency' ); ?>
+						<?php esc_html_e( 'Improve Coverage', 'orate-agency' ); ?>
 					</h2>
 					<ul style="margin:0;padding-left:18px;">
-						<li style="font-size:13px;color:#475569;margin-bottom:8px;"><?php esc_html_e( 'Add content for the top knowledge gaps to your KB.', 'al-bot-agency' ); ?></li>
-						<li style="font-size:13px;color:#475569;margin-bottom:8px;"><?php esc_html_e( 'Upload a FAQ document covering common questions.', 'al-bot-agency' ); ?></li>
-						<li style="font-size:13px;color:#475569;"><?php esc_html_e( 'Re-train after adding new sources.', 'al-bot-agency' ); ?></li>
+						<li style="font-size:13px;color:#475569;margin-bottom:8px;"><?php esc_html_e( 'Add content for the top knowledge gaps to your KB.', 'orate-agency' ); ?></li>
+						<li style="font-size:13px;color:#475569;margin-bottom:8px;"><?php esc_html_e( 'Upload a FAQ document covering common questions.', 'orate-agency' ); ?></li>
+						<li style="font-size:13px;color:#475569;"><?php esc_html_e( 'Re-train after adding new sources.', 'orate-agency' ); ?></li>
 					</ul>
 					<div style="margin-top:16px;">
 						<a href="<?php echo esc_url( admin_url( 'admin.php?page=ai-site-chat-kb' ) ); ?>" class="button button-primary" style="width:100%;text-align:center;display:block;box-sizing:border-box;">
-							<?php esc_html_e( '→ Go to Knowledge Base', 'al-bot-agency' ); ?>
+							<?php esc_html_e( '→ Go to Knowledge Base', 'orate-agency' ); ?>
 						</a>
 					</div>
 				</div>
@@ -2195,22 +2195,22 @@ function aichat_analytics_page() {
 	</div>
 		<!-- Chat Replay Modal -->
 		<div id="aichat-replay-overlay" class="aichat-replay-overlay" hidden>
-			<div class="aichat-replay-modal" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Conversation replay', 'al-bot-agency' ); ?>">
+			<div class="aichat-replay-modal" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Conversation replay', 'orate-agency' ); ?>">
 				<div class="aichat-replay-header">
 					<div>
-						<h2 class="aichat-replay-title"><?php esc_html_e( 'Conversation Replay', 'al-bot-agency' ); ?></h2>
+						<h2 class="aichat-replay-title"><?php esc_html_e( 'Conversation Replay', 'orate-agency' ); ?></h2>
 						<div class="aichat-replay-sub" id="aichat-replay-sub"></div>
 					</div>
 					<div class="aichat-replay-actions">
 						<a href="#" id="aichat-replay-export" class="button" target="_blank" rel="noopener">
 							<span class="dashicons dashicons-download" style="vertical-align:text-top;"></span>
-							<?php esc_html_e( 'Export transcript', 'al-bot-agency' ); ?>
+							<?php esc_html_e( 'Export transcript', 'orate-agency' ); ?>
 						</a>
-						<button type="button" class="aichat-replay-close" id="aichat-replay-close" aria-label="<?php esc_attr_e( 'Close', 'al-bot-agency' ); ?>">&times;</button>
+						<button type="button" class="aichat-replay-close" id="aichat-replay-close" aria-label="<?php esc_attr_e( 'Close', 'orate-agency' ); ?>">&times;</button>
 					</div>
 				</div>
 				<div class="aichat-replay-body" id="aichat-replay-body">
-					<div class="aichat-replay-loading"><?php esc_html_e( 'Loading…', 'al-bot-agency' ); ?></div>
+					<div class="aichat-replay-loading"><?php esc_html_e( 'Loading…', 'orate-agency' ); ?></div>
 				</div>
 			</div>
 		</div>
@@ -2235,7 +2235,7 @@ function aichat_analytics_page() {
 				currentRequest = null;
 			}
 			$overlay.prop('hidden', true);
-			$body.html('<div class="aichat-replay-loading"><?php echo esc_js( __( 'Loading…', 'al-bot-agency' ) ); ?></div>');
+			$body.html('<div class="aichat-replay-loading"><?php echo esc_js( __( 'Loading…', 'orate-agency' ) ); ?></div>');
 		}
 
 		function renderTranscript(data) {
@@ -2243,25 +2243,25 @@ function aichat_analytics_page() {
 
 			if (data.triggeredBy) {
 				html += '<div class="aichat-replay-trigger">' +
-					'<?php echo esc_js( __( 'Started via proactive trigger:', 'al-bot-agency' ) ); ?> ' +
+					'<?php echo esc_js( __( 'Started via proactive trigger:', 'orate-agency' ) ); ?> ' +
 					escHtml(data.triggeredBy) + '</div>';
 			}
 
 			if (data.lead) {
-				html += '<div class="aichat-replay-lead"><strong><?php echo esc_js( __( 'Captured lead', 'al-bot-agency' ) ); ?></strong>' +
+				html += '<div class="aichat-replay-lead"><strong><?php echo esc_js( __( 'Captured lead', 'orate-agency' ) ); ?></strong>' +
 					'<div class="aichat-replay-lead-grid">' +
-						'<div><?php echo esc_js( __( 'Name', 'al-bot-agency' ) ); ?>: ' + escHtml(data.lead.name || '—') + '</div>' +
-						'<div><?php echo esc_js( __( 'Email', 'al-bot-agency' ) ); ?>: ' + escHtml(data.lead.email || '—') + '</div>' +
-						'<div><?php echo esc_js( __( 'Phone', 'al-bot-agency' ) ); ?>: ' + escHtml(data.lead.phone || '—') + '</div>' +
-						'<div><?php echo esc_js( __( 'Requirement', 'al-bot-agency' ) ); ?>: ' + escHtml(data.lead.requirement || '—') + '</div>' +
+						'<div><?php echo esc_js( __( 'Name', 'orate-agency' ) ); ?>: ' + escHtml(data.lead.name || '—') + '</div>' +
+						'<div><?php echo esc_js( __( 'Email', 'orate-agency' ) ); ?>: ' + escHtml(data.lead.email || '—') + '</div>' +
+						'<div><?php echo esc_js( __( 'Phone', 'orate-agency' ) ); ?>: ' + escHtml(data.lead.phone || '—') + '</div>' +
+						'<div><?php echo esc_js( __( 'Requirement', 'orate-agency' ) ); ?>: ' + escHtml(data.lead.requirement || '—') + '</div>' +
 					'</div></div>';
 			}
 
 			if (data.truncated) {
 				html += '<div class="aichat-replay-truncated">' +
-					'<?php echo esc_js( __( 'Showing the most recent', 'al-bot-agency' ) ); ?> ' + escHtml(data.shown) +
-					' <?php echo esc_js( __( 'of', 'al-bot-agency' ) ); ?> ' + escHtml(data.total) +
-					' <?php echo esc_js( __( 'messages.', 'al-bot-agency' ) ); ?></div>';
+					'<?php echo esc_js( __( 'Showing the most recent', 'orate-agency' ) ); ?> ' + escHtml(data.shown) +
+					' <?php echo esc_js( __( 'of', 'orate-agency' ) ); ?> ' + escHtml(data.total) +
+					' <?php echo esc_js( __( 'messages.', 'orate-agency' ) ); ?></div>';
 			}
 
 			(data.messages || []).forEach(function (m) {
@@ -2270,12 +2270,12 @@ function aichat_analytics_page() {
 				var bubbleCls = m.role === 'user' ? 'aichat-bubble--user' : 'aichat-bubble--bot';
 				html += '<div class="aichat-replay-msg ' + cls + '">' +
 					'<div class="aichat-bubble ' + bubbleCls + '">' + escHtml(m.text) + '</div>' +
-					(m.unanswered ? '<span class="aichat-replay-unanswered"><?php echo esc_js( __( 'Unanswered', 'al-bot-agency' ) ); ?></span>' : '') +
+					(m.unanswered ? '<span class="aichat-replay-unanswered"><?php echo esc_js( __( 'Unanswered', 'orate-agency' ) ); ?></span>' : '') +
 					'<div class="aichat-replay-time">' + escHtml(m.time) + '</div>' +
 					'</div>';
 			});
 
-			$body.html(html || '<div class="aichat-replay-error"><?php echo esc_js( __( 'No messages in this conversation.', 'al-bot-agency' ) ); ?></div>');
+			$body.html(html || '<div class="aichat-replay-error"><?php echo esc_js( __( 'No messages in this conversation.', 'orate-agency' ) ); ?></div>');
 			$sub.text(data.sessionId + ' · ' + data.startedAt);
 			$export.attr('href', data.exportUrl || '#');
 		}
@@ -2283,7 +2283,7 @@ function aichat_analytics_page() {
 		$(document).on('click', '.aichat-view-convo', function () {
 			var sessionId = $(this).data('session');
 			$overlay.prop('hidden', false);
-			$body.html('<div class="aichat-replay-loading"><?php echo esc_js( __( 'Loading…', 'al-bot-agency' ) ); ?></div>');
+			$body.html('<div class="aichat-replay-loading"><?php echo esc_js( __( 'Loading…', 'orate-agency' ) ); ?></div>');
 			$sub.text('');
 
 			currentRequest = $.ajax({
@@ -2299,14 +2299,14 @@ function aichat_analytics_page() {
 				if (res && res.success) {
 					renderTranscript(res.data);
 				} else {
-					var msg = (res && res.data && res.data.message) || '<?php echo esc_js( __( 'Could not load this conversation.', 'al-bot-agency' ) ); ?>';
+					var msg = (res && res.data && res.data.message) || '<?php echo esc_js( __( 'Could not load this conversation.', 'orate-agency' ) ); ?>';
 					$body.html('<div class="aichat-replay-error">' + escHtml(msg) + '</div>');
 				}
 			}).fail(function (jqXHR, textStatus) {
 				if ( 'abort' === textStatus ) return;
 				var msg = ( 'timeout' === textStatus )
-					? '<?php echo esc_js( __( 'The server took too long to respond. Please try again.', 'al-bot-agency' ) ); ?>'
-					: '<?php echo esc_js( __( 'Could not load this conversation.', 'al-bot-agency' ) ); ?>';
+					? '<?php echo esc_js( __( 'The server took too long to respond. Please try again.', 'orate-agency' ) ); ?>'
+					: '<?php echo esc_js( __( 'Could not load this conversation.', 'orate-agency' ) ); ?>';
 				$body.html('<div class="aichat-replay-error">' + escHtml(msg) + '</div>');
 			}).always(function () {
 				currentRequest = null;
@@ -2411,10 +2411,10 @@ function aichat_leads_page() {
 	<div class="wrap aichat-wrap">
 		<h1 class="aichat-page-title">
 			<span class="dashicons dashicons-groups aichat-title-icon"></span>
-			<?php esc_html_e( 'Leads', 'al-bot-agency' ); ?>
-			<span class="aichat-version-badge"><?php printf( esc_html__( '%d total', 'al-bot-agency' ), $total ); ?></span>
+			<?php esc_html_e( 'Leads', 'orate-agency' ); ?>
+			<span class="aichat-version-badge"><?php printf( esc_html__( '%d total', 'orate-agency' ), $total ); ?></span>
 		</h1>
-		<p class="aichat-page-sub"><?php esc_html_e( 'Everyone who has shared their details with the chat widget, newest first.', 'al-bot-agency' ); ?></p>
+		<p class="aichat-page-sub"><?php esc_html_e( 'Everyone who has shared their details with the chat widget, newest first.', 'orate-agency' ); ?></p>
 		<?php aichat_admin_page_nav( 'leads' ); ?>
 
 		<?php if ( ! empty( $leads ) ) :
@@ -2425,11 +2425,11 @@ function aichat_leads_page() {
 		<div class="aichat-leads-actions">
 			<a href="<?php echo esc_url( $csv_url ); ?>" class="button button-secondary" style="display:inline-flex;align-items:center;gap:6px;">
 				<span class="dashicons dashicons-download" style="margin-top:3px;"></span>
-				<?php esc_html_e( 'Export CSV', 'al-bot-agency' ); ?>
+				<?php esc_html_e( 'Export CSV', 'orate-agency' ); ?>
 			</a>
 			<a href="<?php echo esc_url( $pdf_url ); ?>" target="_blank" class="button button-secondary" style="display:inline-flex;align-items:center;gap:6px;">
 				<span class="dashicons dashicons-pdf" style="margin-top:3px;"></span>
-				<?php esc_html_e( 'Export PDF', 'al-bot-agency' ); ?>
+				<?php esc_html_e( 'Export PDF', 'orate-agency' ); ?>
 			</a>
 		</div>
 		<?php endif; ?>
@@ -2438,8 +2438,8 @@ function aichat_leads_page() {
 			<div class="aichat-card">
 				<div class="aichat-empty">
 					<span class="dashicons dashicons-groups"></span>
-					<strong><?php esc_html_e( 'No leads yet', 'al-bot-agency' ); ?></strong>
-					<span><?php esc_html_e( 'Leads are captured conversationally — the bot will ask visitors for their details at the right moment during chat.', 'al-bot-agency' ); ?></span>
+					<strong><?php esc_html_e( 'No leads yet', 'orate-agency' ); ?></strong>
+					<span><?php esc_html_e( 'Leads are captured conversationally — the bot will ask visitors for their details at the right moment during chat.', 'orate-agency' ); ?></span>
 				</div>
 			</div>
 		<?php else : ?>
@@ -2448,12 +2448,12 @@ function aichat_leads_page() {
 				<thead>
 					<tr>
 						<th style="width:50px;"><a href="<?php echo aichat_sort_url( 'id', $orderby, $toggle_order ); ?>">#</a></th>
-						<th><a href="<?php echo aichat_sort_url( 'name', $orderby, $toggle_order ); ?>"><?php esc_html_e( 'Name', 'al-bot-agency' ); ?><?php echo $orderby === 'name' ? ( $order === 'ASC' ? ' ▲' : ' ▼' ) : ''; ?></a></th>
-						<th style="width:190px;"><a href="<?php echo aichat_sort_url( 'email', $orderby, $toggle_order ); ?>"><?php esc_html_e( 'Email', 'al-bot-agency' ); ?></a></th>
-						<th style="width:140px;"><a href="<?php echo aichat_sort_url( 'phone', $orderby, $toggle_order ); ?>"><?php esc_html_e( 'Phone', 'al-bot-agency' ); ?></a></th>
-						<th style="width:150px;"><a href="<?php echo aichat_sort_url( 'created_at', $orderby, $toggle_order ); ?>"><?php esc_html_e( 'Date', 'al-bot-agency' ); ?><?php echo $orderby === 'created_at' ? ( $order === 'ASC' ? ' ▲' : ' ▼' ) : ''; ?></a></th>
-						<th><?php esc_html_e( 'Requirement', 'al-bot-agency' ); ?></th>
-						<th style="width:130px;"><?php esc_html_e( 'Transcript', 'al-bot-agency' ); ?></th>
+						<th><a href="<?php echo aichat_sort_url( 'name', $orderby, $toggle_order ); ?>"><?php esc_html_e( 'Name', 'orate-agency' ); ?><?php echo $orderby === 'name' ? ( $order === 'ASC' ? ' ▲' : ' ▼' ) : ''; ?></a></th>
+						<th style="width:190px;"><a href="<?php echo aichat_sort_url( 'email', $orderby, $toggle_order ); ?>"><?php esc_html_e( 'Email', 'orate-agency' ); ?></a></th>
+						<th style="width:140px;"><a href="<?php echo aichat_sort_url( 'phone', $orderby, $toggle_order ); ?>"><?php esc_html_e( 'Phone', 'orate-agency' ); ?></a></th>
+						<th style="width:150px;"><a href="<?php echo aichat_sort_url( 'created_at', $orderby, $toggle_order ); ?>"><?php esc_html_e( 'Date', 'orate-agency' ); ?><?php echo $orderby === 'created_at' ? ( $order === 'ASC' ? ' ▲' : ' ▼' ) : ''; ?></a></th>
+						<th><?php esc_html_e( 'Requirement', 'orate-agency' ); ?></th>
+						<th style="width:130px;"><?php esc_html_e( 'Transcript', 'orate-agency' ); ?></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -2465,7 +2465,7 @@ function aichat_leads_page() {
 							<td>
 								<div class="aichat-lead-name">
 									<span class="aichat-lead-avatar"><?php echo esc_html( $initial ); ?></span>
-									<strong><?php echo $lead->name ? esc_html( $lead->name ) : esc_html__( '(no name)', 'al-bot-agency' ); ?></strong>
+									<strong><?php echo $lead->name ? esc_html( $lead->name ) : esc_html__( '(no name)', 'orate-agency' ); ?></strong>
 								</div>
 							</td>
 							<td class="<?php echo $lead->email ? 'aichat-lead-email' : 'aichat-lead-empty-cell'; ?>"><?php echo $lead->email ? esc_html( $lead->email ) : '—'; ?></td>
@@ -2474,7 +2474,7 @@ function aichat_leads_page() {
 							<td class="aichat-lead-requirement"><?php echo $lead->requirement ? esc_html( $lead->requirement ) : '—'; ?></td>
 							<td>
 								<details class="aichat-transcript-details">
-									<summary><span class="dashicons dashicons-visibility" style="font-size:13px;width:13px;height:13px;"></span> <?php esc_html_e( 'View', 'al-bot-agency' ); ?></summary>
+									<summary><span class="dashicons dashicons-visibility" style="font-size:13px;width:13px;height:13px;"></span> <?php esc_html_e( 'View', 'orate-agency' ); ?></summary>
 									<div class="aichat-transcript-body"><?php echo wp_kses_post( nl2br( $lead->transcript ) ); ?></div>
 								</details>
 							</td>

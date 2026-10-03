@@ -1,9 +1,9 @@
-# Al Bot — Agency Plugin
+# Orate — Agency Plugin
 
 **Version:** 1.0.0
 **Requires:** WordPress 5.8+, PHP 7.4+
 **License:** GPL v2
-**Text domain:** `al-bot-agency`
+**Text domain:** `orate-agency`
 
 > Full-featured AI chat plugin for agencies — unlimited WordPress sites, all 6 AI model integrations, auto-training, smart lead capture, knowledge base uploads, analytics, and white-label bot branding.
 
@@ -15,7 +15,7 @@ A white-label AI chatbot plugin built for agencies to resell to their clients. I
 
 | File | Role |
 |---|---|
-| `al-bot-agency-plugin.php` | Main plugin file — activation/DB setup, cron, AJAX handlers, multi-LLM proxy, KB file parsing |
+| `orate-agency-plugin.php` | Main plugin file — activation/DB setup, cron, AJAX handlers, multi-LLM proxy, KB file parsing |
 | `admin-page.php` | Admin UI — Settings / Knowledge Base / Analytics / Leads tabs |
 | `chat-widget.php` | Mounts the frontend widget (config + nonces only, no KB content) |
 | `scraper.php` | Auto-trainer — builds the system prompt from site content |
@@ -41,7 +41,7 @@ One active provider at a time, switchable via a provider-chip picker in Settings
 
 ## Key features
 
-### AJAX handlers (`al-bot-agency-plugin.php`)
+### AJAX handlers (`orate-agency-plugin.php`)
 - `aichat_proxy_llm` (public) — proxies chat to the active LLM; builds the system prompt server-side; rate-limited (30 requests / 5 min); caps history to last 6 turns; truncates system prompt to 20,000 chars.
 - `aichat_save_lead` (public) — upserts a lead row keyed by `session_id`.
 - `aichat_track_message` (public) — logs Q&A pairs + "unanswered" flag to analytics.
@@ -94,7 +94,7 @@ The generated prompt encodes: identity/role/tone (from admin settings), strict "
 
 ## Admin panel (`admin-page.php`)
 
-Menu: **Al Bot Agency** → Settings / Knowledge Base / Analytics / Leads (shared pill-tab nav).
+Menu: **Orate Agency** → Settings / Knowledge Base / Analytics / Leads (shared pill-tab nav).
 
 **Settings**
 - LLM Model Configuration — provider picker (6 chips), API key + model dropdown per provider.

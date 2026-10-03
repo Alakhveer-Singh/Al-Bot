@@ -3,18 +3,10 @@ const WAITLIST_URL = "https://discord.gg/enRfBFpjb7";
 
 // The scripted hero conversation. No real AI calls: this only plays back.
 const SCRIPT = [
-  { bot: "Hi there 👋 I'm Leafy, the assistant for Green Leaf Interiors. Ask me anything about our work." },
-  { user: "Do you design modular kitchens?" },
-  { bot: "Yes! We design, build and install modular kitchens, from the first sketch to the final fitting. Most kitchens take 3 to 4 weeks, and every project starts with a free site visit.",
-    chips: ["See kitchen styles", "What does it cost?", "Book a site visit"] },
-  { chip: "Book a site visit" },
-  { bot: "Happy to set that up. May I have your name?" },
-  { user: "Priya Sharma" },
-  { bot: "Thanks, Priya! What's the best email to reach you on?" },
-  { user: "priya@example.com" },
-  { bot: "Got it. And what would you like done? A rough size and timeline helps our designers." },
-  { user: "An L-shaped kitchen, about 10×12 ft. Hoping to start next month." },
-  { bot: "Lovely. I've passed this to our design team, and they'll email you within a day to fix a visit time." },
+  { user: "Do you design modular kitchens? I need an L-shaped one, about 10×12 ft, by next month." },
+  { bot: "Yes! Most kitchens take 3 to 4 weeks, and every project starts with a free site visit. May I have your name and email to set one up?" },
+  { user: "Priya Sharma, priya@example.com" },
+  { bot: "Thanks, Priya! Our design team will email you within a day to fix a visit time." },
   { lead: true },
 ];
 

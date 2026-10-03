@@ -1,12 +1,12 @@
 # Implementation Prompt — "Make the Bot Feel Alive" + Visual Chat Replay
 
-Paste this into Claude Code (or any coding agent) with the Al Bot plugin open, and let it implement directly against the existing files.
+Paste this into Claude Code (or any coding agent) with the Orate plugin open, and let it implement directly against the existing files.
 
 ---
 
 ## Context
 
-This is a WordPress plugin (`Al Bot — Agency Plugin`, `al-bot-agency-plugin.php` + `chat-widget.php` + `scraper.php` + `admin-page.php`). The frontend widget lives in `assets/js/chat-widget.js` / `assets/css/chat-widget.css`, mounted into `#aichat-widget-root` / `#aichat-inline-root`. Chat goes through the `aichat_proxy_llm` AJAX action (admin-ajax.php, not REST). Analytics events are logged via `aichat_track_message` into `wp_aichat_analytics`. Session id is a 32-char random string generated client-side per page load and persisted with chat history in `localStorage` under `aichat_history` (1-day TTL).
+This is a WordPress plugin (`Orate — Agency Plugin`, `orate-agency-plugin.php` + `chat-widget.php` + `scraper.php` + `admin-page.php`). The frontend widget lives in `assets/js/chat-widget.js` / `assets/css/chat-widget.css`, mounted into `#aichat-widget-root` / `#aichat-inline-root`. Chat goes through the `aichat_proxy_llm` AJAX action (admin-ajax.php, not REST). Analytics events are logged via `aichat_track_message` into `wp_aichat_analytics`. Session id is a 32-char random string generated client-side per page load and persisted with chat history in `localStorage` under `aichat_history` (1-day TTL).
 
 Implement the following four features. Match the existing code style (vanilla JS, no build step / no framework, WP `wp_ajax_*` conventions, nonce-protected AJAX, prepared statements for all DB access). Keep everything backward compatible — new options must default to "off" so existing installs don't change behavior until an admin opts in.
 
@@ -59,7 +59,7 @@ Goal: if a visitor already gave their name in a previous session (lead capture a
 
 Goal: replace "wait for full reply, then render" with token-by-token streaming, like a modern chat UI.
 
-**Server side (`aichat_proxy_llm` in `al-bot-agency-plugin.php`):**
+**Server side (`aichat_proxy_llm` in `orate-agency-plugin.php`):**
 - Each of the 6 providers (Anthropic, OpenAI, Gemini, Mistral, Groq/Llama, DeepSeek) supports SSE streaming on their chat completion endpoints. Add a `stream: true` parameter to the outbound API request for the active provider, and instead of using `wp_remote_post` (which buffers the whole response), use a raw `curl` handle (or `WP_Http` with a streaming-capable transport) with `CURLOPT_WRITEFUNCTION` to relay each SSE chunk to the browser as it arrives, flushing PHP's output buffer after each chunk (`ob_flush(); flush();`).
 - This bypasses the normal `wp_send_json_success` pattern — the endpoint needs to send `Content-Type: text/event-stream` and stream raw chunks instead of one JSON blob. Keep the *existing* non-streaming code path available behind a feature flag (`aichat_streaming_enabled` option, default off initially) in case a host's server config doesn't support flushing (some PHP-FPM/Nginx buffering setups will fully buffer regardless — document this as a known limitation in the Settings UI next to the toggle).
 - Rate limiting, nonce checks, message-history capping, and system-prompt truncation all stay exactly as they are today — streaming only changes how the response body is delivered, not the request validation.
@@ -109,7 +109,7 @@ Goal: instead of the current flat Q&A analytics rows, let an admin open a sessio
 
 ## Delivery expectations
 
-- Bump plugin version and add a changelog entry at the top of `al-bot-agency-plugin.php`'s header comment.
+- Bump plugin version and add a changelog entry at the top of `orate-agency-plugin.php`'s header comment.
 - All new `wp_options` should have safe defaults registered on activation (extend the existing activation hook) so a fresh install doesn't have undefined option warnings.
 - All new AJAX actions need nonce verification + the existing rate-limit helper (`aichat_rate_limit_check()`) applied consistently with how current public endpoints do it.
 - Test manually: toggle each new feature off and confirm the plugin behaves identically to before this change (nothing here should be on by default except the animations, which are cosmetic and safe to ship enabled).
